@@ -28,7 +28,7 @@ function Map({setPosition, position, locations }) {
   }, [position]);
 
   return (
-    <>
+    <div>
         <MapContainer
         ref={mapRef}
         className="map"
@@ -49,7 +49,7 @@ function Map({setPosition, position, locations }) {
             </Marker>
         ))}
         </MapContainer>
-    </>
+    </div>
     
   );
 }
