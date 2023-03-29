@@ -1,7 +1,9 @@
-# Sweet Soft UrFU-Map
+# Sweet Soft UrFU Map
 
 Онлайн карта Уральского Федерального Университета, разрабатываемая командой "Sweet Soft".\
 Online map of the Ural Federal University, being developed by the "Sweet Soft" team.
+
+Web-site >> [Sweet Soft Map](https://aydlioh04.github.io/sosw-map/)
 
 Ветка с исходными файлами >> [master](https://github.com/AYDLIOH04/sosw-map/tree/master)\
 Ветка с файлами для отрисовки на GitHub Pages >> [gh-pages](https://github.com/AYDLIOH04/sosw-map/tree/gh-pages)
