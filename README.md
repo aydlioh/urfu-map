@@ -3,6 +3,10 @@
 Онлайн карта Уральского Федерального Университета, разрабатываемая командой "Sweet Soft".\
 Online map of the Ural Federal University, being developed by the "Sweet Soft" team.
 
+# Ветка с исходными файлами - [master](https://github.com/AYDLIOH04/sosw-map/tree/master)
+# Ветка с файлами для отрисовки на GitHub Pages - [gh-pages](https://github.com/AYDLIOH04/sosw-map/tree/gh-pages)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
