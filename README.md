@@ -3,12 +3,24 @@
 Онлайн карта Уральского Федерального Университета, разрабатываемая командой "Sweet Soft".\
 Online map of the Ural Federal University, being developed by the "Sweet Soft" team.
 
-
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+
+In the project directory, you can run:
+### `npm run deploy`
+
+Загрузка в репозиторий [gh-pages](https://github.com/AYDLIOH04/sosw-map/tree/gh-pages) для отрисовки сайта на GitHub Pages.\
+Uploading to the [gh-pages](https://github.com/AYDLIOH04/sosw-map/tree/gh-pages) repository for rendering the web-site on GitHub Pages.
+
+### `git add .`
+### `git commit -m "Какой-то текст"`
+### `git push origin master`
+
+Загрузка в репозиторий [master](https://github.com/AYDLIOH04/sosw-map/tree/master) для хранения исходных файлов проекта.\
+Uploading to the [master](https://github.com/AYDLIOH04/sosw-map/tree/master) repository to store the project source files.
+
+
 
 In the project directory, you can run:
 
@@ -35,7 +47,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-.
 
 
 
