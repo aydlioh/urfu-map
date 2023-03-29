@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import Footer from './Footer';
 import UrfuMap from "./Map";
 import Menu from './Menu';
 
 const locations = [
-    { title: 'ИРИТ-РТФ', position: [56.8408212141831,60.650870100687744], text: "RADIOFUCKFUFUCKFCUFUC" },
-    { title: 'УрФУ', position: [56.84402578520124,60.65379538441558], text: "Главный Учебный Кшарага" },
-    { title: 'ФТИ', position: [56.84272134350719,60.651752882212874], text: "Mesto Obytaniya Daunov" },
-    { title: 'СК-11', position: [56.83757683350624,60.656424837172274], text: "Тараканье логово"},
-    { title: 'ЧЗХ Тимлид?!', position: [56.83369559643219,60.64982655036045], text: "Когда ТЗ?"},
-    { title: 'УГИ', position: [56.84044615824193,60.61618275612711], text: "Мяу Мяу Девочки с Уги <3"}
+    { id: 1, title: 'ИРИТ-РТФ', position: [56.8408212141831,60.650870100687744], text: "RADIOFUCKFUFUCKFCUFUC" },
+    { id: 2, title: 'УрФУ', position: [56.84402578520124,60.65379538441558], text: "Главный Учебный Кшарага" },
+    { id: 3, title: 'ФТИ', position: [56.84272134350719,60.651752882212874], text: "Mesto Obytaniya Daunov" },
+    { id: 4, title: 'СК-11', position: [56.83757683350624,60.656424837172274], text: "Тараканье логово"},
+    { id: 5, title: 'ЧЗХ Тимлид?!', position: [56.83369559643219,60.64982655036045], text: "Когда ТЗ?"},
+    { id: 6, title: 'УГИ', position: [56.84044615824193,60.61618275612711], text: "Мяу Мяу Девочки с Уги <3"}
 ];
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <div className={`menu-popup ${menuOpen ? 'open' : ''}`}>
                 <Menu setPosition={setPosition} locations={locations} />
             </div>
+            <Footer/>
         </div>
     );
 }

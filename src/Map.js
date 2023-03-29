@@ -28,26 +28,29 @@ function Map({setPosition, position, locations }) {
   }, [position]);
 
   return (
-    <MapContainer
-      ref={mapRef}
-      className="map"
-      center={position}
-      zoom={17}
-      scrollWheelZoom={false}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {locations.map((l) => (
-        <Marker icon={icon} position={l.position}>
-          <Popup>
-            <h1 className="marker__title">{l.title}</h1>
-            <span className="marker__text">{l.text}</span>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <>
+        <MapContainer
+        ref={mapRef}
+        className="map"
+        center={position}
+        zoom={17}
+        scrollWheelZoom={false}
+        >
+        <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {locations.map((l) => (
+            <Marker key={l.id} icon={icon} position={l.position}>
+                <Popup>
+                <h1 className="marker__title">{l.title}</h1>
+                <span className="marker__text">{l.text}</span>
+                </Popup>
+            </Marker>
+        ))}
+        </MapContainer>
+    </>
+    
   );
 }
 
