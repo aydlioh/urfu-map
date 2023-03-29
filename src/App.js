@@ -3,12 +3,12 @@ import UrfuMap from "./Map";
 import Menu from './Menu';
 
 const locations = [
-    { title: 'ИРИТ-РТФ', position: [56.8407612141831,60.650770100687744], text: "RADIOFUCKFUFUCKFCUFUC" },
-    { title: 'УрФУ', position: [56.84402578520124,60.65402538441558], text: "Главный Учебный Кшарага" },
-    { title: 'ФТИ', position: [56.84272134350719,60.651682882212874], text: "Mesto Obytaniya Daunov" },
+    { title: 'ИРИТ-РТФ', position: [56.8408212141831,60.650870100687744], text: "RADIOFUCKFUFUCKFCUFUC" },
+    { title: 'УрФУ', position: [56.84402578520124,60.65379538441558], text: "Главный Учебный Кшарага" },
+    { title: 'ФТИ', position: [56.84272134350719,60.651752882212874], text: "Mesto Obytaniya Daunov" },
     { title: 'СК-11', position: [56.83757683350624,60.656424837172274], text: "Тараканье логово"},
     { title: 'ЧЗХ Тимлид?!', position: [56.83369559643219,60.64982655036045], text: "Когда ТЗ?"},
-    { title: 'УГИ', position: [56.84041615824193,60.61594875612711], text: "Мяу Мяу Девочки с Уги <3"}
+    { title: 'УГИ', position: [56.84044615824193,60.61618275612711], text: "Мяу Мяу Девочки с Уги <3"}
 ];
 
 function App() {
