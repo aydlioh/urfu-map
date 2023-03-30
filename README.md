@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Navigation
 
-Web-Site >> [Sweet Soft Map](https://aydlioh04.github.io/sosw-map/)
+Web-Site >> [Sweet Soft Map](https://aydlioh04.github.io/sosw-map/)\
 Ветка с исходными файлами >> [master](https://github.com/AYDLIOH04/sosw-map/tree/master)\
 Ветка с файлами для отрисовки на GitHub Pages >> [gh-pages](https://github.com/AYDLIOH04/sosw-map/tree/gh-pages)
 
