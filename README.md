@@ -3,13 +3,14 @@
 Онлайн карта Уральского Федерального Университета, разрабатываемая командой "Sweet Soft".\
 Online map of the Ural Federal University, being developed by the "Sweet Soft" team.
 
-Web-Site >> [Sweet Soft Map](https://aydlioh04.github.io/sosw-map/)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Navigation
+
+Web-Site >> [Sweet Soft Map](https://aydlioh04.github.io/sosw-map/)
 Ветка с исходными файлами >> [master](https://github.com/AYDLIOH04/sosw-map/tree/master)\
 Ветка с файлами для отрисовки на GitHub Pages >> [gh-pages](https://github.com/AYDLIOH04/sosw-map/tree/gh-pages)
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 В терминале проекта вы можете запустить следующие команды:
@@ -29,6 +30,8 @@ git add .
 git commit -m "Какой-то текст"
 git push origin master
 ```
+
+## Run Locally
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
