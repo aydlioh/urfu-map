@@ -19,6 +19,7 @@ function Map({ position, locations }) {
   return (
     <>
         <MapContainer
+        zoomInText="qweqwe"
         ref={mapRef}
         className="map"
         center={position}
