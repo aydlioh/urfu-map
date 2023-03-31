@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sosw-map/static/css/main.f3a08948.css",
+    "main.css": "/sosw-map/static/css/main.7d596cae.css",
     "main.js": "/sosw-map/static/js/main.8ce4af3a.js",
     "index.html": "/sosw-map/index.html",
-    "main.f3a08948.css.map": "/sosw-map/static/css/main.f3a08948.css.map",
+    "main.7d596cae.css.map": "/sosw-map/static/css/main.7d596cae.css.map",
     "main.8ce4af3a.js.map": "/sosw-map/static/js/main.8ce4af3a.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3a08948.css",
+    "static/css/main.7d596cae.css",
     "static/js/main.8ce4af3a.js"
   ]
 }
