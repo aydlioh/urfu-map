@@ -17,7 +17,11 @@ function Markers( {locations}) {
     return (
         <>
         {locations.map((l) => (
-            <Marker key={l.id} icon={icon} position={l.position}>
+            <Marker
+                key={l.id}
+                icon={icon}
+                position={l.position}
+                >
                 <Popup>
                     <h1 className="marker__title">{l.title}</h1>
                     <span className="marker__text">{l.text}</span>

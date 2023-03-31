@@ -48,7 +48,7 @@
 .leaflet-control-zoom {
     height: 100px;
     width: 50px;
-    border: none;
+    border: none !important;
 
     display: flex;
     flex-wrap: wrap;
@@ -74,22 +74,12 @@
     font-size: 40px;
     font-weight: 400;
 
+    border-radius: 10px !important;
 }
 
-.leaflet-touch .leaflet-bar a:first-child {
-    border-radius: 10px;
-}
-
-.leaflet-touch .leaflet-bar a:last-child {
-    border-radius: 10px;
-}
 
 .leaflet-bar a:hover {
   background-color: #d3d3d3;
-}
-
-.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
-    border: none;
 }
 
 .leaflet-control-zoom {

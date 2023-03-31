@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 
 
-function MenuToggle({setMenuOpen, menuOpen, toggleMenu}) {
+function MenuToggle({menuOpen, toggleMenu}) {
     useEffect(() => {
         function handleKeyDown(event) {
             if (event.key === 'Escape') {
-                setMenuOpen(false);
+                toggleMenu();
             }
         }
         document.addEventListener('keydown', handleKeyDown);
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
         };
-    }, [setMenuOpen]);
+    }, [toggleMenu]);
 
   return (
     <button className='menu-toggle' onClick={toggleMenu}>

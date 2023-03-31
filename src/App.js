@@ -24,9 +24,9 @@ function App() {
         <>
             <Loader />
             <div className='app'>
-                <UrfuMap setPosition={setPosition} position={position} locations={locations} />
-                <MenuToggle setMenuOpen={setMenuOpen} menuOpen={menuOpen} toggleMenu={toggleMenu} />
-                <Menu className={`menu ${menuOpen ? 'open' : ''}`}  setPosition={setPosition} locations={locations} />
+                <UrfuMap position={position} locations={locations} />
+                <MenuToggle toggleMenu={toggleMenu} menuOpen={menuOpen}/>
+                <Menu toggleMenu={toggleMenu} className={`menu ${menuOpen ? 'open' : ''}`}  setPosition={setPosition} locations={locations} />
                 <Footer/>
             </div>
         </>

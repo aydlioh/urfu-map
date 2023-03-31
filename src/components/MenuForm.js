@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-function MenuForm({ setPosition, locations }) {
+function MenuForm({toggleMenu, setPosition, locations }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event) => {
@@ -9,7 +9,8 @@ function MenuForm({ setPosition, locations }) {
     let inputTitle = searchTerm.replace(/\s+/g, ' ').trim();
     const result = locations.find((location) => location.title.toLowerCase() === inputTitle.toLowerCase())?.position;
     if (result) {
-        setPosition(result);
+        setPosition([result[0] - 0.00000000000001, result[1]]);
+        toggleMenu()
     } else {
       alert(`Объекта с названием "${inputTitle === '' ? "Пустотааа" : inputTitle}" нет на карте ;( `);
     }
