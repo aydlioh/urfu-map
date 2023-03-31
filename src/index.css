@@ -10,6 +10,28 @@
     font-family: Montserrat;
 }
 
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(61, 61, 61);
+    z-index: 9999;
+  }
+  
+  .preloader-text {
+    padding-bottom: 20px;
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+  }
+  
+
 
 .app {
     overflow: hidden;

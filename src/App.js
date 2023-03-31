@@ -4,6 +4,7 @@ import MenuToggle from './components/MenuToggle';
 import UrfuMap from "./Map";
 import Menu from './Menu';
 import "./index.css";
+import Loader from './components/Loader';
 
 
 const locations = [
@@ -20,12 +21,15 @@ function App() {
     const toggleMenu = () => setMenuOpen(!menuOpen);
 
     return (
-        <div className='app'>
-            <UrfuMap setPosition={setPosition} position={position} locations={locations} />
-            <MenuToggle setMenuOpen={setMenuOpen} menuOpen={menuOpen} toggleMenu={toggleMenu} />
-            <Menu className={`menu ${menuOpen ? 'open' : ''}`}  setPosition={setPosition} locations={locations} />
-            <Footer/>
-        </div>
+        <>
+            <Loader />
+            <div className='app'>
+                <UrfuMap setPosition={setPosition} position={position} locations={locations} />
+                <MenuToggle setMenuOpen={setMenuOpen} menuOpen={menuOpen} toggleMenu={toggleMenu} />
+                <Menu className={`menu ${menuOpen ? 'open' : ''}`}  setPosition={setPosition} locations={locations} />
+                <Footer/>
+            </div>
+        </>
     );
 }
 
