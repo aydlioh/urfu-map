@@ -10,6 +10,7 @@
     font-family: Montserrat;
 }
 
+
 .preloader {
     display: flex;
     justify-content: center;
@@ -76,8 +77,6 @@
 
     border-radius: 10px !important;
 }
-
-
 .leaflet-bar a:hover {
   background-color: #d3d3d3;
 }
