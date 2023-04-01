@@ -5,8 +5,6 @@ Online map of the Ural Federal University, being developed by the "Sweet Soft" t
 
 Based on [React](https://react.dev/) and [React-Leaflet](https://react-leaflet.js.org/) libraries
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Navigation
 
 Web-Site >> [Sweet Soft Map](https://aydlioh04.github.io/sosw-map/)\
