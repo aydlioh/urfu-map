@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-function MenuForm({toggleMenu, setPosition, locations }) {
+function MenuForm({isScrolled, toggleMenu, setPosition, locations }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event) => {
@@ -18,20 +18,22 @@ function MenuForm({toggleMenu, setPosition, locations }) {
 };
 
   return (
-    <form className="search-form" onSubmit={handleSearch}>
-        <div className="search-container">
-            <input
-                type="text"
-                placeholder="Поиск"
-                className="search-input"
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-            />
-            <button type="submit" className="search-button">
-                <FaSearch />
-            </button>
-        </div>
-    </form>
+    <div className={`search ${isScrolled ? 'search--scrolled' : ''}`}>
+        <form className="search-form" onSubmit={handleSearch}>
+            <div className="search-container">
+                <input
+                    type="text"
+                    placeholder="Поиск"
+                    className="search-input"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                />
+                <button type="submit" className="search-button">
+                    <FaSearch />
+                </button>
+            </div>
+        </form>
+    </div>
   );
 }
 
