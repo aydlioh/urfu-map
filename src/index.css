@@ -184,6 +184,8 @@
     z-index: 100;
 
     transition: all 0.3s ease-in-out;
+
+    padding-bottom: 10px;
 }
 
 .search--scrolled {
@@ -248,7 +250,11 @@
 }
 
 .menu-item:first-child {
-    margin-top: 40px;
+    margin-top: 30px;
+}
+
+.menu-item:last-child {
+    margin-bottom: 120px;
 }
 
 .menu-item:hover {
