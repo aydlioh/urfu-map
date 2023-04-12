@@ -35,7 +35,7 @@ function Markers( {setPosition, locations}) {
                 <Popup>
                     <h1 className="marker__title">{l.title}</h1>
                     <div className="marker__text">{l.text}</div>
-                    {/* <a className="marker__btn">Посетить</a> */}
+                    <a className="marker__btn" style={{ backgroundColor: l.color }}>Посетить</a>
                 </Popup>
             </Marker>
         ))}

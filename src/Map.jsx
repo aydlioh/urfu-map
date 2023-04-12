@@ -33,11 +33,14 @@ function Map({setPosition, position, locations }) {
             onmoveend={handleMapMove}
             >
             <TileLayer
-                url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-                accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
-                id="aydlioh04/clg8cqnvc009x01mmaiymoxyv"
-                tileSize={512}
-                zoomOffset={-1}
+                // url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+                // accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
+                // id="aydlioh04/clg8cqnvc009x01mmaiymoxyv"
+                // tileSize={512}
+                // zoomOffset={-1}
+
+
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Markers setPosition={setPosition} locations={locations}/>
             </MapContainer>

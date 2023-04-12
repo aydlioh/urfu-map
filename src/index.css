@@ -251,6 +251,7 @@ a.leaflet-popup-close-button {
 
     transition: all 0.2s ease-in-out;
 
+    cursor: pointer;
 }
 
 .menu-item:first-child {
@@ -288,6 +289,33 @@ a.leaflet-popup-close-button {
 .marker__text {
     font-size: 15px;
 }
+
+.marker__btn {
+    margin: 20px auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 8em;
+    height: 2em;
+    border-radius: 5px;
+
+    background-color: #777;
+    color: #fff !important;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.marker__btn:hover {
+    opacity: 0.7;
+}
+
+
 
 .leaflet-popup-content-wrapper {
     text-align: center;
