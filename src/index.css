@@ -87,6 +87,10 @@
     left: 5px;
 }
 
+a.leaflet-popup-close-button {
+    font-size: 40px !important;
+}
+
 .copyright {
     position: fixed;
     bottom: 12px;

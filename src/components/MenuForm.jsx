@@ -9,7 +9,7 @@ function MenuForm({isScrolled, toggleMenu, setPosition, locations }) {
     let inputTitle = searchTerm.replace(/\s+/g, ' ').trim();
     const result = locations.find((location) => location.title.toLowerCase() === inputTitle.toLowerCase())?.position;
     if (result) {
-        setPosition([result[0] - 0.00000000000001, result[1]]);
+        setPosition([result[0], result[1]]);
         toggleMenu()
     } else {
       alert(`Объекта с названием "${inputTitle === '' ? "Пустотааа" : inputTitle}" нет на карте ;( `);

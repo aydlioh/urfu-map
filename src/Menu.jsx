@@ -7,8 +7,16 @@ function Menu({toggleMenu, className, setPosition, locations}) {
 
     return (
         <div className={className}>
-            <MenuForm isScrolled={isScrolled} toggleMenu={toggleMenu} setPosition={setPosition} locations={locations}/>
-            <MenuList setIsScrolled={setIsScrolled} toggleMenu={toggleMenu} setPosition={setPosition} locations={locations}/>
+            <MenuForm
+                isScrolled={isScrolled} 
+                toggleMenu={toggleMenu} 
+                setPosition={setPosition} 
+                locations={locations}/>
+            <MenuList 
+                setIsScrolled={setIsScrolled} 
+                toggleMenu={toggleMenu} 
+                setPosition={setPosition} 
+                locations={locations}/>
         </div>
     );
 }

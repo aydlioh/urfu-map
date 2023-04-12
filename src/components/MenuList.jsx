@@ -2,7 +2,7 @@ export default function MenuList( {setIsScrolled, toggleMenu, setPosition, locat
 
     const handleSearch = (l) => {
         const result = l.position
-        setPosition([result[0] - 0.00000000000001, result[1]]);
+        setPosition([result[0], result[1]]);
         toggleMenu()
     };
     
