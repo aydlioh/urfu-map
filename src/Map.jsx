@@ -5,8 +5,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Markers from "./components/Markers";
 
 function Map({setPosition, position, locations }) {
-    const [bounds] = useState(
-        new LatLngBounds([56.721923, 60.461645], [56.853221, 60.674904])
+    const [bounds, setBounds] = useState(
+        new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
     );
 
     const mapRef = useRef(null);
@@ -19,6 +19,7 @@ function Map({setPosition, position, locations }) {
         });
         }
     }, [position]);
+    
 
     function handleMapMove() {
         const center = mapRef.current.getCenter();
@@ -45,7 +46,7 @@ function Map({setPosition, position, locations }) {
             onmoveend={handleMapMove}
             
             maxBounds={bounds}
-            maxBoundsViscosity={1.0}
+            maxBoundsViscosity={1}
             >
             <TileLayer
                 // url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
@@ -54,7 +55,6 @@ function Map({setPosition, position, locations }) {
                 // tileSize={512}
                 // zoomOffset={-1}
 
-                bounds={[[56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426]]}
 
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
