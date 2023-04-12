@@ -309,6 +309,7 @@ a.leaflet-popup-close-button {
 
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 .marker__btn:hover {
