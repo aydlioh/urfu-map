@@ -14,7 +14,7 @@ function getIcon(color) {
     });
 }
 
-function Markers( {setPosition, locations}) {
+function Markers( {setPosition, locations }) {
 
     
     function handleMarkerClick(e) {
@@ -22,6 +22,11 @@ function Markers( {setPosition, locations}) {
     const result = marker.getLatLng();
     setPosition([result.lat, result.lng]);
     }
+
+    // function handleButtonClick(e) {
+    //     e.preventDefault();
+    //     const newTileLayer = "https://psv4.userapi.com/c237031/u237062606/docs/d38/6c88f7b8d22b/imgonline-com-ua-Replace-color-kJmp92c9gM3Q.png?extra=h7xc8JvG9k74Z1am4SOY54lnOwxomgpV65g6r-vp9ZG5psXgPb21FrhuXSPABfe6EMPHjsECmObSf0MWULpgeX6FpvCno78PyR47sDaIIAGQdC8ll625hAW2Vv0Y8XafvjQ9VXEk3mld1E3AvoKIFg";        setTileLayer(newTileLayer);
+    // }
 
     return (
         <>

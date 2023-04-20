@@ -5,11 +5,15 @@ import React, { useEffect, useRef, useState } from "react";
 import Markers from "./components/Markers";
 
 function Map({setPosition, position, locations }) {
-    const [bounds, setBounds] = useState(
-        new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
-    );
+    const bounds = new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
 
     const mapRef = useRef(null);
+
+    const [tileLayer, setTileLayer] = useState(
+        "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+    );
+
+    const [markers, setMarkers] = useState(locations);
 
     useEffect(() => {
         if (mapRef.current) {
@@ -55,10 +59,9 @@ function Map({setPosition, position, locations }) {
                 // tileSize={512}
                 // zoomOffset={-1}
 
-
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                url={tileLayer}
             />
-            <Markers setPosition={setPosition} locations={locations}/>
+            <Markers setPosition={setPosition} locations={markers} />
             </MapContainer>
         </>
     
