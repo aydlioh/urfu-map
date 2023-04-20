@@ -10,7 +10,9 @@ function Map({setPosition, position, locations }) {
     const mapRef = useRef(null);
 
     const [tileLayer, setTileLayer] = useState(
-        "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+        // "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+        // "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     );
 
     const [markers, setMarkers] = useState(locations);
