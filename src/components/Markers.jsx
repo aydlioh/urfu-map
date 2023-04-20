@@ -14,20 +14,20 @@ function getIcon(color) {
     });
 }
 
-function Markers( {setPosition, locations }) {
+function Markers( { setPosition, locations, handleButtonClick }) {
 
     
     function handleMarkerClick(e) {
-    const marker = e.target;
-    const result = marker.getLatLng();
-    setPosition([result.lat, result.lng]);
+        const marker = e.target;
+        const result = marker.getLatLng();
+        setPosition([result.lat, result.lng]);
     }
 
-    // function handleButtonClick(e) {
-    //     e.preventDefault();
-    //     const newTileLayer = "https://psv4.userapi.com/c237031/u237062606/docs/d38/6c88f7b8d22b/imgonline-com-ua-Replace-color-kJmp92c9gM3Q.png?extra=h7xc8JvG9k74Z1am4SOY54lnOwxomgpV65g6r-vp9ZG5psXgPb21FrhuXSPABfe6EMPHjsECmObSf0MWULpgeX6FpvCno78PyR47sDaIIAGQdC8ll625hAW2Vv0Y8XafvjQ9VXEk3mld1E3AvoKIFg";        setTileLayer(newTileLayer);
-    // }
+    function clickButton(ins){
+        handleButtonClick(ins)
+    }
 
+    
     return (
         <>
         {locations.map((l) => (
@@ -40,7 +40,7 @@ function Markers( {setPosition, locations }) {
                 <Popup>
                     <h1 className="marker__title">{l.title}</h1>
                     <div className="marker__text">{l.text}</div>
-                    <a className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Посетить</a>
+                    <a onClick={() => clickButton(l.institute)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Посетить</a>
                 </Popup>
             </Marker>
         ))}

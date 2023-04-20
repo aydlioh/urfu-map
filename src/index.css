@@ -148,7 +148,8 @@ a.leaflet-popup-close-button {
     font-weight: 500;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 20px;
+
     padding: 10px 20px;
     cursor: pointer;
 
@@ -180,7 +181,6 @@ a.leaflet-popup-close-button {
     right: 20px;
 }
   
-    
 .search {
     position: relative;
     width: 100%;
@@ -314,6 +314,45 @@ a.leaflet-popup-close-button {
 
 .marker__btn:hover {
     opacity: 0.7;
+}
+
+.institute-container{
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+@media (max-width: 700px) {
+    .institute-container {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        padding: 10px;
+    }
+}
+
+.institute__btn {
+    background-color: #fff;
+    padding: 5px 20px;
+    border-radius: 5px;
+
+    position: relative;
+
+    font-size: 20px;
+
+    z-index: 1000;
+    color: #000;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    transition: all 0.3s ease-in-out;
+}
+
+.institute__btn:hover {
+    background-color: rgb(219, 219, 219);
 }
 
 
