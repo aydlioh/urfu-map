@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-function MenuForm({isScrolled, toggleMenu, setPosition, locations }) {
+export default function MenuForm({isScrolled, toggleMenu, setPosition, locations }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event) => {
@@ -37,4 +37,3 @@ function MenuForm({isScrolled, toggleMenu, setPosition, locations }) {
   );
 }
 
-export default MenuForm;

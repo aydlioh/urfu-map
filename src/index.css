@@ -44,6 +44,7 @@
 .map {
     z-index: 0;
     height: 100%;
+    background-color: #fff;
 }
 
 .leaflet-control-zoom {

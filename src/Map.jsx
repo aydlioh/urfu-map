@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Markers from "./components/Markers";
 import InstituteNavigation from './components/InstituteNavigation'
 
-function Map({setPosition, position, locations }) {
+export default function Map({setPosition, position, locations }) {
     const bounds = new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
     const mapRef = useRef(null);
     const [streetMap, setStreetMap] = useState(
@@ -126,5 +126,3 @@ function Map({setPosition, position, locations }) {
   );
 }
 
-
-export default Map;

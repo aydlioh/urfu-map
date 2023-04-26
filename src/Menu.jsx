@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MenuForm from './components/MenuForm';
 import MenuList from './components/MenuList';
 
-function Menu({toggleMenu, className, setPosition, locations}) {
+export default function Menu({toggleMenu, className, setPosition, locations}) {
     const [isScrolled, setIsScrolled] = useState(false);
 
     return (
@@ -20,5 +20,3 @@ function Menu({toggleMenu, className, setPosition, locations}) {
         </div>
     );
 }
-
-export default Menu;

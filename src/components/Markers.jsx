@@ -14,7 +14,7 @@ function getIcon(color) {
     });
 }
 
-function Markers( { setPosition, locations, handleButtonClick }) {
+export default function Markers( { setPosition, locations, handleButtonClick }) {
 
     
     function handleMarkerClick(e) {
@@ -47,5 +47,3 @@ function Markers( { setPosition, locations, handleButtonClick }) {
         </>
     );
 }
-
-export default Markers;
