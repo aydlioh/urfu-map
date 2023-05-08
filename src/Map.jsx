@@ -6,6 +6,7 @@ import Markers from "./components/Markers";
 import InstituteNavigation from './components/InstituteNavigation'
 
 export default function Map({setPosition, position, locations }) {
+    //#region Fields
     const bounds = new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
     const mapRef = useRef(null);
     // const [streetMap, setStreetMap] = useState(
@@ -14,11 +15,24 @@ export default function Map({setPosition, position, locations }) {
     //     // "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
     //     // "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     // );
-
+    
     const streetMap = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-
     const [markers, setMarkers] = useState(locations);
+    const [instituteMap, setInstituteMap] = useState("")
+    const [institute, setInstitute] = useState([])
 
+    const [index, setIndex] = useState(0)
+    const [floorNumber, setFloorNumber] = useState(1);
+
+    const [prevPosition, setPrevPosition] = useState(position)
+
+    const [minZoom, setMinZoom] = useState(14); 
+
+    const [maxZoom, setMaxZoom] = useState(18); 
+    const [zoom, setZoom] = useState(17); 
+    //#endregion
+
+    //#region Function
     function zoomToPosition(duration, zoomLevel) {
         if (mapRef.current) {
           mapRef.current.flyTo(position, zoomLevel, {
@@ -27,11 +41,6 @@ export default function Map({setPosition, position, locations }) {
           });
         }
     }
-
-    useEffect(() => {
-        zoomToPosition(0.4, 18)
-    }, [position]);
-    
 
     function handleMapMove() {
         const center = mapRef.current.getCenter();
@@ -44,17 +53,6 @@ export default function Map({setPosition, position, locations }) {
         } else setPosition([center.lat, center.lng]);
     }
 
-    const [instituteMap, setInstituteMap] = useState("")
-    const [institute, setInstitute] = useState([])
-    const [index, setIndex] = useState(0)
-    const [floorNumber, setFloorNumber] = useState(1);
-
-    const [prevPosition, setPrevPosition] = useState(position)
-
-    const [maxZoom, setMaxZoom] = useState(18); 
-    const [zoom, setZoom] = useState(17); 
-
-
     function handleButtonClick(ins) {
         if (ins.length > index){
             setMarkers([])
@@ -64,8 +62,7 @@ export default function Map({setPosition, position, locations }) {
             zoomToPosition(0.2, 13)
             setMaxZoom(15);
             setZoom(13);
-
-            
+            setMinZoom(12)
         }
     }
 
@@ -78,6 +75,7 @@ export default function Map({setPosition, position, locations }) {
 
         setMaxZoom(17);
         setZoom(17);
+        setMinZoom(14)
 
         setIndex(0)
         setFloorNumber(1)
@@ -95,10 +93,17 @@ export default function Map({setPosition, position, locations }) {
             setFloorNumber(() => floorNumber - 1)
         }
     }
+    //#endregion
+
+    //#region UseEffect
+    useEffect(() => {
+        zoomToPosition(0.4, 18)
+    }, [position]);
 
     useEffect(() => {
         setInstituteMap(institute[index]);
     }, [index, institute]);
+    //#endregion
 
     return (
         <>
@@ -108,7 +113,7 @@ export default function Map({setPosition, position, locations }) {
                 className="map"
                 center={position}
                 zoom={zoom}
-                minZoom={13}
+                minZoom={minZoom}
                 maxZoom={maxZoom}
                 onmoveend={handleMapMove}
                 maxBounds={bounds}

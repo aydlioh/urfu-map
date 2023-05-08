@@ -15,7 +15,6 @@ function getIcon(color) {
 }
 
 export default function Markers( {position, setPrevPosition, setIndex, setPosition, locations, handleButtonClick }) {
-
     
     function handleMarkerClick(e) {
         const marker = e.target;
@@ -34,7 +33,6 @@ export default function Markers( {position, setPrevPosition, setIndex, setPositi
         }
     }
 
-    
     return (
         <>
         {locations.map((l) => (
