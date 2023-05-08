@@ -49,8 +49,10 @@ export default function Map({setPosition, position, locations }) {
     const [index, setIndex] = useState(0)
     const [floorNumber, setFloorNumber] = useState(1);
 
+    const [prevPosition, setPrevPosition] = useState(position)
+
     const [maxZoom, setMaxZoom] = useState(18); 
-    const [zoom, setZoom] = useState(18); 
+    const [zoom, setZoom] = useState(17); 
 
 
     function handleButtonClick(ins) {
@@ -62,6 +64,8 @@ export default function Map({setPosition, position, locations }) {
             zoomToPosition(0.2, 13)
             setMaxZoom(15);
             setZoom(13);
+
+            
         }
     }
 
@@ -72,11 +76,13 @@ export default function Map({setPosition, position, locations }) {
         setInstituteMap("")
         setInstitute([])
 
-        setMaxZoom(18);
-        setZoom(18);
+        setMaxZoom(17);
+        setZoom(17);
 
         setIndex(0)
         setFloorNumber(1)
+
+        setPosition(prevPosition)
     }
 
     function AppOrDownClick(offset){
@@ -129,7 +135,7 @@ export default function Map({setPosition, position, locations }) {
                 </>
             }
             
-            <Markers setIndex={setIndex} setInstitute={setInstitute} setPosition={setPosition} locations={markers} handleButtonClick={handleButtonClick} />
+            <Markers position={position} setPrevPosition={setPrevPosition} setIndex={setIndex} setInstitute={setInstitute} setPosition={setPosition} locations={markers} handleButtonClick={handleButtonClick} />
             </MapContainer>
         </>
   );

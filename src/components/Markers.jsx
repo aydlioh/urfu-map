@@ -14,7 +14,7 @@ function getIcon(color) {
     });
 }
 
-export default function Markers( {setIndex, setPosition, locations, handleButtonClick }) {
+export default function Markers( {position, setPrevPosition, setIndex, setPosition, locations, handleButtonClick }) {
 
     
     function handleMarkerClick(e) {
@@ -24,9 +24,14 @@ export default function Markers( {setIndex, setPosition, locations, handleButton
     }
 
     function clickButton(l){
-        if (l.groundFloor)
-            setIndex(1)
-        handleButtonClick(l.institute)
+        if (l.institute.length > 0){
+            if (l.groundFloor)
+                setIndex(1)
+    
+            setPrevPosition(position)
+            setPosition(l.door)
+            handleButtonClick(l.institute)
+        }
     }
 
     
