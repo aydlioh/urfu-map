@@ -14,7 +14,7 @@ function getIcon(color) {
     });
 }
 
-export default function Markers( { setPosition, locations, handleButtonClick }) {
+export default function Markers( {setIndex, setPosition, locations, handleButtonClick }) {
 
     
     function handleMarkerClick(e) {
@@ -23,8 +23,10 @@ export default function Markers( { setPosition, locations, handleButtonClick }) 
         setPosition([result.lat, result.lng]);
     }
 
-    function clickButton(ins){
-        handleButtonClick(ins)
+    function clickButton(l){
+        if (l.groundFloor)
+            setIndex(1)
+        handleButtonClick(l.institute)
     }
 
     
@@ -40,7 +42,7 @@ export default function Markers( { setPosition, locations, handleButtonClick }) 
                 <Popup>
                     <h1 className="marker__title">{l.title}</h1>
                     <div className="marker__text">{l.text}</div>
-                    <a onClick={() => clickButton(l.institute)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Посетить</a>
+                    <a onClick={() => clickButton(l)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Посетить</a>
                 </Popup>
             </Marker>
         ))}

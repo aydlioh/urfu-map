@@ -88,14 +88,22 @@
     left: 5px;
 }
 
+
 a.leaflet-popup-close-button {
     font-size: 40px !important;
 }
 
+.leaflet-control-rotate{
+    border: none !important;
+    top: 20px;
+    left: 5px;
+}
+
+
 .copyright {
     position: fixed;
     bottom: 12px;
-    left: calc(50% - 200px);
+    left: calc(50% - 210px);
 
     padding: 0 10px;
     width: 400px;
@@ -168,7 +176,7 @@ a.leaflet-popup-close-button {
 .menu {
     position: absolute;
     top: 70px;
-    right: -400px;
+    right: -500px;
     min-width: 300px;
     height: calc(100% - 120px);
     background-color: white;
@@ -218,6 +226,8 @@ a.leaflet-popup-close-button {
     font-size: 16px;
     padding: 5px;
 }
+
+
 
 
     
@@ -318,31 +328,61 @@ a.leaflet-popup-close-button {
 }
 
 .institute-container{
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 100px;
+    position: absolute;
+
+    right: 20px;
+    top: calc(50% - 96px);
+
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-around;
     align-items: center;
 
 }
-@media (max-width: 700px) {
+/* @media (max-width: 900px) {
     .institute-container {
         position: absolute;
-        bottom: 20px;
+        bottom: 40px;
         left: 0;
         right: 0;
         padding: 10px;
+    }
+} */
+.floor-number{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+
+    font-size: 30px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    color: #0078A8;
+
+    position: absolute;
+    top: 10px;
+    right: calc(50% - 25px);
+    z-index: 1000;
+}
+
+@media (max-width: 600px) {
+    .floor-number{
+        top: calc(50% - 170px);
+        right: 16px;
     }
 }
 
 .institute__btn {
     background-color: #fff;
-    padding: 5px 20px;
+    padding: 10px 10px;
+    margin: 8px 0;
     border-radius: 5px;
 
     position: relative;
 
-    font-size: 20px;
+    font-size: 24px;
 
     z-index: 1000;
     color: #000;
@@ -350,6 +390,9 @@ a.leaflet-popup-close-button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
     transition: all 0.3s ease-in-out;
+
+    display: flex;
+    align-items: center;
 }
 
 .institute__btn:hover {
