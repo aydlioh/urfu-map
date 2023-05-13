@@ -9,14 +9,12 @@ export default function Map({setPosition, position, locations }) {
     //#region Fields
     const bounds = new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
     const mapRef = useRef(null);
-    // const [streetMap, setStreetMap] = useState(
-    //     // "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+    //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
     //     "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-    //     // "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
-    //     // "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    // );
+    //     "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+    //     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     
-    const streetMap = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+    const streetMap = "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
     const [markers, setMarkers] = useState(locations);
     const [instituteMap, setInstituteMap] = useState("")
     const [institute, setInstitute] = useState([])
@@ -122,10 +120,10 @@ export default function Map({setPosition, position, locations }) {
                 
             {!instituteMap && 
             <TileLayer
-                // accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
-                // id="mapbox/streets-v11"
-                // tileSize={512}
-                // zoomOffset={-1}
+                accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
+                id="mapbox/streets-v11"
+                tileSize={512}
+                zoomOffset={-1}
                 url={streetMap}
             />}
             
