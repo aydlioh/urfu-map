@@ -3,10 +3,18 @@ import { LatLngBounds } from "leaflet";
 import "leaflet-geosearch/dist/geosearch.css";
 import React, { useEffect, useRef, useState } from "react";
 import Markers from "./components/Markers";
+import Menu from './Menu';
+import MenuToggle from './components/MenuToggle';
 import InstituteNavigation from './components/InstituteNavigation'
 
-export default function Map({setPosition, position, locations }) {
+export default function Map({ locations }) {
     //#region Fields
+
+    const [position, setPosition] = useState([56.84384143906293,60.65234332360141]);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+
     const bounds = new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
     const mapRef = useRef(null);
     //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
@@ -27,7 +35,7 @@ export default function Map({setPosition, position, locations }) {
     const [minZoom, setMinZoom] = useState(14); 
 
     const [maxZoom, setMaxZoom] = useState(18); 
-    const [zoom, setZoom] = useState(17); 
+    const [zoom, setZoom] = useState(18); 
     //#endregion
 
     //#region Function
@@ -47,6 +55,8 @@ export default function Map({setPosition, position, locations }) {
           mapRef.current.setView(newCenter, mapRef.current.getZoom(), {
             animate: true
           });
+            console.log(position)
+
           setPosition([newCenter.lat, newCenter.lng]);
         } else setPosition([center.lat, center.lng]);
     }
@@ -64,21 +74,21 @@ export default function Map({setPosition, position, locations }) {
         }
     }
 
-    function handleButtonClickBack(e) {
-        e.preventDefault();
-
-        setMarkers(locations)
-        setInstituteMap("")
-        setInstitute([])
-
-        setMaxZoom(17);
-        setZoom(17);
-        setMinZoom(14)
-
-        setIndex(0)
-        setFloorNumber(1)
-
-        setPosition(prevPosition)
+    function handleButtonClickBack() {
+        if (instituteMap){
+            setMarkers(locations)
+            setInstituteMap("")
+            setInstitute([])
+    
+            setMaxZoom(18);
+            setZoom(18);
+            setMinZoom(14)
+    
+            setIndex(0)
+            setFloorNumber(1)
+    
+            setPosition(prevPosition)
+        }
     }
 
     function AppOrDownClick(offset){
@@ -105,6 +115,17 @@ export default function Map({setPosition, position, locations }) {
 
     return (
         <>
+            <MenuToggle
+                toggleMenu={toggleMenu}
+                menuOpen={menuOpen}
+            />
+            <Menu
+                handleButtonClickBack={handleButtonClickBack}
+                toggleMenu={toggleMenu}
+                className={`menu ${menuOpen ? 'open' : ''}`}
+                setPosition={setPosition}
+                locations={locations}
+            />
             <MapContainer
                 key={maxZoom}
                 ref={mapRef}
@@ -134,11 +155,23 @@ export default function Map({setPosition, position, locations }) {
                         bounds={bounds}
                         url={instituteMap}
                     />
-                    <InstituteNavigation floorNumber={floorNumber} AppOrDownClick={AppOrDownClick} handleButtonClickBack={handleButtonClickBack} />
+                    <InstituteNavigation
+                        floorNumber={floorNumber}
+                        AppOrDownClick={AppOrDownClick}
+                        handleButtonClickBack={handleButtonClickBack}
+                    />
                 </>
             }
             
-            <Markers position={position} setPrevPosition={setPrevPosition} setIndex={setIndex} setInstitute={setInstitute} setPosition={setPosition} locations={markers} handleButtonClick={handleButtonClick} />
+            <Markers
+                position={position}
+                setPrevPosition={setPrevPosition}
+                setIndex={setIndex}
+                setInstitute={setInstitute}
+                setPosition={setPosition}
+                locations={markers}
+                handleButtonClick={handleButtonClick}
+            />
             </MapContainer>
         </>
   );

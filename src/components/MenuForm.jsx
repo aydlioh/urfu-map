@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-export default function MenuForm({isScrolled, toggleMenu, setPosition, locations }) {
+export default function MenuForm({handleButtonClickBack, isScrolled, toggleMenu, setPosition, locations }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event) => {
@@ -11,6 +11,7 @@ export default function MenuForm({isScrolled, toggleMenu, setPosition, locations
     if (result) {
         setPosition([result[0], result[1]]);
         toggleMenu()
+        handleButtonClickBack()
     } else {
       alert(`Объекта с названием "${inputTitle === '' ? "Пустотааа" : inputTitle}" нет на карте ;( `);
     }

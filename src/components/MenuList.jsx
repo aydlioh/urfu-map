@@ -1,9 +1,10 @@
-export default function MenuList( {setIsScrolled, toggleMenu, setPosition, locations} ) {
+export default function MenuList( {handleButtonClickBack, setIsScrolled, toggleMenu, setPosition, locations} ) {
 
     const handleSearch = (l) => {
         const result = l.position
-        setPosition([result[0], result[1]]);
+        handleButtonClickBack()
         toggleMenu()
+        setPosition([result[0], result[1]]);
     };
     
     const handleScroll = (event) => {
@@ -13,7 +14,7 @@ export default function MenuList( {setIsScrolled, toggleMenu, setPosition, locat
         } else {
           setIsScrolled(false);
         }
-      };
+    };
 
     return ( 
         <div className="menu-items" onScroll={handleScroll}>

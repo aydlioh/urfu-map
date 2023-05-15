@@ -184,6 +184,8 @@ a.leaflet-popup-close-button {
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
+
+    z-index: 10000;
 }
 
 .menu.open {
@@ -408,10 +410,7 @@ a.leaflet-popup-close-button {
 
 @media (max-width: 450px) {
     .copyright{
-        width: 100%;
-        border-radius: 0px;
-        bottom: 0;
-        left: 0;
+        display: none;
     }
 
     .menu {

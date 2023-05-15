@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Footer from './components/Footer';
-import MenuToggle from './components/MenuToggle';
 import UrfuMap from "./Map";
-import Menu from './Menu';
 import "./index.css";
 import Loader from './components/Loader';
 
@@ -64,18 +62,13 @@ const locations = [
 ];
 
 export default function App() {
-    const [position, setPosition] = useState([56.84384143906293,60.65234332360141]);
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    const toggleMenu = () => setMenuOpen(!menuOpen);
-
     return (
         <>
             <Loader />
             <div className='app'>
-                <UrfuMap position={position} setPosition={setPosition} locations={locations} />
-                <MenuToggle toggleMenu={toggleMenu} menuOpen={menuOpen}/>
-                <Menu toggleMenu={toggleMenu} className={`menu ${menuOpen ? 'open' : ''}`}  setPosition={setPosition} locations={locations} />
+                <UrfuMap
+                    locations={locations}
+                />
                 <Footer/>
             </div>
         </>
