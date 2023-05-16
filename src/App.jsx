@@ -66,9 +66,7 @@ export default function App() {
         <>
             <Loader />
             <div className='app'>
-                <UrfuMap
-                    locations={locations}
-                />
+                <UrfuMap locations={locations}/>
                 <Footer/>
             </div>
         </>

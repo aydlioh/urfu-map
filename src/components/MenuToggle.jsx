@@ -16,7 +16,10 @@ function MenuToggle({menuOpen, toggleMenu}) {
 
   return (
     <button className='menu-toggle' onClick={toggleMenu}>
-      {menuOpen ? 'Закрыть меню' : 'Открыть меню'}
+        <div className='toggle-inner' >
+            <div className={'menu-burger' + (menuOpen ? ' open' : '')} ></div>
+        </div>
+      {/* {menuOpen ? 'Закрыть меню' : 'Открыть меню'} */}
     </button>
   );
 }

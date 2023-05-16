@@ -136,15 +136,10 @@ a.leaflet-popup-close-button {
     color: #777;
 }
 
-/* .watermark{
-    background-color: #dadada; 
-    position: fixed;
-    width: 66px;
-    height: 18px;
-    right: 0;
-    bottom: 0;
-} */
 
+.leaflet-control-attribution {
+    display: none;
+}
 
     
 .menu-toggle {
@@ -159,7 +154,7 @@ a.leaflet-popup-close-button {
     border-radius: 5px;
     font-size: 20px;
 
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
 
     outline: none;
@@ -167,6 +162,62 @@ a.leaflet-popup-close-button {
     transition: all 0.3s ease-in-out;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 25px;
+    min-width: 30px;
+}
+
+.menu-burger{
+    position: relative;
+    height: 4px;
+    width: 40px;
+    border-radius: 4px;
+    background-color: #525252;  
+
+    transition: all 0.3s;
+}
+
+.menu-burger::before,
+.menu-burger::after {
+    content: "";
+    right: 0;
+
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #525252;  
+
+    transition: all 0.3s;
+}
+
+.menu-burger::before {
+    top: -10px;
+}
+
+.menu-burger::after {
+    top: 10px;
+}
+
+.open {
+    width: 0;
+}
+
+.open::after{
+    right: -10px;
+
+    transform: rotate(45deg) translate(0px, -14px);
+}
+
+.open::before{
+    right: -10px;
+
+    transform: rotate(-45deg) translate(0px, 14px);
 }
 
 .menu-toggle:hover {
@@ -177,7 +228,7 @@ a.leaflet-popup-close-button {
     position: absolute;
     top: 70px;
     right: -500px;
-    min-width: 300px;
+    min-width: 34z0px;
     height: calc(100% - 120px);
     background-color: white;
     border: 1px solid #ccc;
@@ -272,7 +323,7 @@ a.leaflet-popup-close-button {
 }
 
 .menu-item:last-child {
-    margin-bottom: 120px;
+    margin-bottom: 200px;
 }
 
 .menu-item:hover {

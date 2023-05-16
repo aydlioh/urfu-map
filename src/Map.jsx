@@ -142,7 +142,7 @@ export default function Map({ locations }) {
             {!instituteMap && 
             <TileLayer
                 accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
-                id="mapbox/streets-v11"
+                id="mapbox/streets-v12"
                 tileSize={512}
                 zoomOffset={-1}
                 url={streetMap}
