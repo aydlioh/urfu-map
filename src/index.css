@@ -228,7 +228,7 @@ a.leaflet-popup-close-button {
     position: absolute;
     top: 70px;
     right: -500px;
-    min-width: 34z0px;
+    min-width: 340px;
     height: calc(100% - 120px);
     background-color: white;
     border: 1px solid #ccc;
