@@ -58,7 +58,21 @@ const locations = [
             require('./images/guk/guk4.png'),
             require('./images/guk/guk5.png')
         ]},
-    { id: 10, color: "rgb(224, 149, 43)", title: 'ТЭФ', position: [56.84273134350719,60.655642882212874], door: [50, 50], text: "Теплоэнергетический факультет", groundFloor : false, institute:[]  },
+    { id: 10, color: "rgb(224, 149, 43)", title: 'ТЭФ', position: [56.84273134350719,60.655642882212874], door: [50, 50], text: "Теплоэнергетический факультет", groundFloor : false,
+        institute:[
+            require('./images/tpf/tpf1.png'),
+            require('./images/tpf/tpf2.png'),
+            require('./images/tpf/tpf3.png'),
+            require('./images/tpf/tpf4.png'),
+            require('./images/tpf/tpf5.png'),
+            require('./images/tpf/tpf6.png'),
+            require('./images/tpf/tpf7.png'),
+            require('./images/tpf/tpf8.png'),
+            require('./images/tpf/tpf9.png'),
+            require('./images/tpf/tpf10.png'),
+            require('./images/tpf/tpf11.png'),
+            require('./images/tpf/tpf12.png'),
+        ]},
 ];
 
 export default function App() {
