@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Footer from './components/Footer';
 import UrfuMap from "./Map";
 import "./index.css";
