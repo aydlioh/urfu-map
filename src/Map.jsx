@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, ImageOverlay } from "react-leaflet";
+import { MapContainer, TileLayer, ImageOverlay, useMapEvents } from "react-leaflet";
 import { LatLngBounds } from "leaflet";
 import "leaflet-geosearch/dist/geosearch.css";
 import React, { useEffect, useRef, useState } from "react";
@@ -6,6 +6,9 @@ import Markers from "./components/Markers";
 import Menu from './Menu';
 import MenuToggle from './components/MenuToggle';
 import InstituteNavigation from './components/InstituteNavigation'
+import { LocationMarker } from "./API/LocationMarker";
+
+
 
 export default function Map({ locations }) {
     //#region Fields
@@ -138,41 +141,42 @@ export default function Map({ locations }) {
                 maxBounds={bounds}
                 maxBoundsViscosity={1}
             >
+                <LocationMarker />  
+
+                {!instituteMap && 
+                <TileLayer
+                    accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
+                    id="mapbox/streets-v12"
+                    tileSize={512}
+                    zoomOffset={-1}
+                    url={streetMap}
+                />}
                 
-            {!instituteMap && 
-            <TileLayer
-                accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
-                id="mapbox/streets-v12"
-                tileSize={512}
-                zoomOffset={-1}
-                url={streetMap}
-            />}
-            
-            {instituteMap && 
-                <>
-                    <ImageOverlay
-                        className="map"
-                        bounds={bounds}
-                        url={instituteMap}
-                    />
-                    <InstituteNavigation
-                        floorNumber={floorNumber}
-                        AppOrDownClick={AppOrDownClick}
-                        handleButtonClickBack={handleButtonClickBack}
-                    />
-                </>
-            }
-            
-            <Markers
-                position={position}
-                setPrevPosition={setPrevPosition}
-                setIndex={setIndex}
-                setInstitute={setInstitute}
-                setPosition={setPosition}
-                locations={markers}
-                handleButtonClick={handleButtonClick}
-            />
-            </MapContainer>
+                {instituteMap && 
+                    <>
+                        <ImageOverlay
+                            className="map"
+                            bounds={bounds}
+                            url={instituteMap}
+                        />
+                        <InstituteNavigation
+                            floorNumber={floorNumber}
+                            AppOrDownClick={AppOrDownClick}
+                            handleButtonClickBack={handleButtonClickBack}
+                        />
+                    </>
+                }
+                
+                <Markers
+                    position={position}
+                    setPrevPosition={setPrevPosition}
+                    setIndex={setIndex}
+                    setInstitute={setInstitute}
+                    setPosition={setPosition}
+                    locations={markers}
+                    handleButtonClick={handleButtonClick}
+                />
+                </MapContainer>
         </>
   );
 }
