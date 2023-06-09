@@ -1,5 +1,5 @@
 import { useMapEvents, Marker, Popup } from "react-leaflet";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import L from "leaflet";
 
 function getUserIcon(color) {
@@ -15,10 +15,7 @@ function getUserIcon(color) {
     });
 }
 
-export function LocationMarker() {
-    const [userPosition, setUserPosition] = useState([0, 0]);
-    const [isUser, setIsUser] = useState(false);
-
+export function LocationMarker({userPosition, setUserPosition}) {
     useMapEvents({
       locationfound(e) {
         const { lat, lng } = e.latlng;
@@ -35,7 +32,6 @@ export function LocationMarker() {
             const { latitude, longitude } = position.coords;
 
             setUserPosition([latitude, longitude]);
-            setIsUser(true);
             
             console.log("Разрешение получено");
             console.log("Координаты пользователя:", latitude, longitude);
@@ -47,7 +43,7 @@ export function LocationMarker() {
       } else {
         console.warn("Geolocation не поддерживается в данном браузере");
       }
-    }, []);
+    }, [setUserPosition]);
   
     
     return(
@@ -57,8 +53,11 @@ export function LocationMarker() {
             position={userPosition}
             >
             <Popup>
-                <h1 className="marker__title">Я тут</h1>
-                <div className="marker__text">Ты тут</div>
+                <h1 className="marker__title">Ваше местоположение</h1>
+                {/*                 
+                <div className="marker__text">Широта ({userPosition[0]})</div>
+                <div className="marker__text">Долгота ({userPosition[1]})</div>
+                */}
             </Popup>
         </Marker>
     )

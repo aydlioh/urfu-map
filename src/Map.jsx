@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, ImageOverlay, useMapEvents } from "react-leaflet";
+import { MapContainer, TileLayer, ImageOverlay } from "react-leaflet";
 import { LatLngBounds } from "leaflet";
 import "leaflet-geosearch/dist/geosearch.css";
 import React, { useEffect, useRef, useState } from "react";
@@ -12,6 +12,7 @@ import { LocationMarker } from "./API/LocationMarker";
 
 export default function Map({ locations }) {
     //#region Fields
+    const [userPosition, setUserPosition] = useState([0, 0]);
 
     const [position, setPosition] = useState([56.84384143906293,60.65234332360141]);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -141,8 +142,6 @@ export default function Map({ locations }) {
                 maxBounds={bounds}
                 maxBoundsViscosity={1}
             >
-                <LocationMarker />  
-
                 {!instituteMap && 
                 <TileLayer
                     accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
@@ -153,20 +152,24 @@ export default function Map({ locations }) {
                 />}
                 
                 {instituteMap && 
-                    <>
-                        <ImageOverlay
-                            className="map"
-                            bounds={bounds}
-                            url={instituteMap}
-                        />
-                        <InstituteNavigation
-                            floorNumber={floorNumber}
-                            AppOrDownClick={AppOrDownClick}
-                            handleButtonClickBack={handleButtonClickBack}
-                        />
-                    </>
-                }
+                <>
+                    <ImageOverlay
+                        className="map"
+                        bounds={bounds}
+                        url={instituteMap}
+                    />
+                    <InstituteNavigation
+                        floorNumber={floorNumber}
+                        AppOrDownClick={AppOrDownClick}
+                        handleButtonClickBack={handleButtonClickBack}
+                    />
+                </>}
                 
+                <LocationMarker
+                    userPosition={userPosition}
+                    setUserPosition={setUserPosition}
+                /> 
+
                 <Markers
                     position={position}
                     setPrevPosition={setPrevPosition}
