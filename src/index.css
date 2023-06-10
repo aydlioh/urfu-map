@@ -436,7 +436,7 @@ a.leaflet-popup-close-button {
     margin: 0 10px;
     margin-bottom: 1.5em;
 
-    background-color: #e8e8e8;
+    border: #e6e6e6 solid 2px;
     border-radius: 5px;
     padding: 10px;
 
@@ -454,7 +454,7 @@ a.leaflet-popup-close-button {
 }
 
 .menu-item:hover {
-    background-color: #bebebe;
+    background-color: #e6e6e6;
 }
 
 .menu-item__title {
@@ -480,9 +480,13 @@ a.leaflet-popup-close-button {
 .marker__text {
     font-size: 15px;
 }
+.marker__btns {
+    display: flex;
+}
 
 .marker__btn {
-    margin: 20px auto;
+    width: 36%;
+    margin: 15px auto;
     padding: 0 10px;
     display: flex;
     justify-content: center;

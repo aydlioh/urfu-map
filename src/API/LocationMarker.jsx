@@ -33,8 +33,6 @@ export function LocationMarker({userPosition, setUserPosition}) {
 
             setUserPosition([latitude, longitude]);
             
-            console.log("Разрешение получено");
-            console.log("Координаты пользователя:", latitude, longitude);
           },
           (error) => {
             console.error("Ошибка при получении координат пользователя:", error);

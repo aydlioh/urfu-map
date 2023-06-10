@@ -14,26 +14,16 @@ function getIcon(color) {
     });
 }
 
-export default function Markers( {createRoute, deleteRoute, position, setPrevPosition, setIndex, setPosition, locations, handleButtonClick, setLimitFloors }) {
+export default function Markers( {deleteRoute, clickVisit, createRoute, setPosition, locations }) {
     
-    function handleMarkerClick(e) {
+    function clickMarker(e) {
         const marker = e.target;
         const result = marker.getLatLng();
-        createRoute(result);
         setPosition([result.lat, result.lng]);
     }
 
-    function clickButton(l){
-        deleteRoute();
-
-        if (l.institute.length > 0){
-            if (l.groundFloor)
-                setIndex(1)
-            setLimitFloors([1 - (l.groundFloor ? 1 : 0),  l.institute.length - (l.groundFloor ? 1 : 0)])
-            setPrevPosition(position)
-            setPosition(l.door)
-            handleButtonClick(l.institute)
-        }
+    function clickCreateRoute(pos){
+        createRoute(pos);
     }
 
     return (
@@ -43,12 +33,15 @@ export default function Markers( {createRoute, deleteRoute, position, setPrevPos
                 key={l.id}
                 icon={getIcon(l.color)}
                 position={l.position}
-                eventHandlers={{ click: handleMarkerClick }}
+                eventHandlers={{ click: clickMarker }}
                 >
                 <Popup>
                     <h1 className="marker__title">{l.title}</h1>
                     <div className="marker__text">{l.text}</div>
-                    <a onClick={() => clickButton(l)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Посетить</a>
+                    <div className="marker__btns">
+                        <a onClick={() => clickVisit(l)} className="marker__btn" href="#" style={{ backgroundColor: l.color }}>Посетить</a>
+                        <a onClick={() => clickCreateRoute(l.position)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Маршрут</a>
+                    </div>
                 </Popup>
             </Marker>
         ))}

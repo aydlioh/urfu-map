@@ -11,13 +11,13 @@ import { LocationMarker } from "./API/LocationMarker";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import L from "leaflet";
 import "leaflet-routing-machine";
+import CloseButton from "./components/CloseButton";
 
 
 export default function Map({ locations }) {
     //#region Fields
     const [userPosition, setUserPosition] = useState([0, 0]);
     const [routeControl, setRouteControl] = useState(null);
-
 
     const [position, setPosition] = useState([56.84384143906293,60.65234332360141]);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -137,7 +137,7 @@ export default function Map({ locations }) {
           ],
           routeWhileDragging: true,
           lineOptions: {
-            styles: [{ color: "red", opacity: 0.5, weight: 8 }]
+            styles: [{ color: "red", opacity: 0.7, weight: 8 }]
           },
           createMarker: function() { return null; },
           addWaypoints: false,
@@ -162,6 +162,21 @@ export default function Map({ locations }) {
     }
     //#endregion
 
+    //#region Visit University
+    function clickVisit(l){
+        deleteRoute();
+
+        if (l.institute.length > 0){
+            if (l.groundFloor)
+                setIndex(1)
+            setLimitFloors([1 - (l.groundFloor ? 1 : 0),  l.institute.length - (l.groundFloor ? 1 : 0)])
+            setPrevPosition(position)
+            setPosition(l.door)
+            handleButtonClick(l.institute)
+        }
+    }
+    //#endregion
+
     return (
         <>
             <MenuToggle
@@ -169,6 +184,9 @@ export default function Map({ locations }) {
                 menuOpen={menuOpen}
             />
             <Menu
+                instituteMap={instituteMap}
+                clickVisit={clickVisit}
+                createRoute={createRoute}
                 handleButtonClickBack={handleButtonClickBack}
                 toggleMenu={toggleMenu}
                 className={`menu ${menuOpen ? 'open' : ''}`}
@@ -188,7 +206,7 @@ export default function Map({ locations }) {
                 maxBoundsViscosity={1}
             >
                 {routeControl &&
-                    <button className="close-btn" onClick={deleteRoute}>Завершить</button>
+                    <CloseButton deleteRoute={deleteRoute} />
                 }
 
                 {!instituteMap && 
@@ -221,16 +239,11 @@ export default function Map({ locations }) {
                 /> 
 
                 <Markers
-                    createRoute={createRoute}
                     deleteRoute={deleteRoute}
-                    position={position}
-                    setPrevPosition={setPrevPosition}
-                    setIndex={setIndex}
-                    setInstitute={setInstitute}
+                    clickVisit={clickVisit}
+                    createRoute={createRoute}
                     setPosition={setPosition}
                     locations={markers}
-                    handleButtonClick={handleButtonClick}
-                    setLimitFloors={setLimitFloors}
                 />
 
             </MapContainer>
