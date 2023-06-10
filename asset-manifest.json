@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sosw-map/static/css/main.9a7b0d2d.css",
-    "main.js": "/sosw-map/static/js/main.5e805b68.js",
+    "main.css": "/sosw-map/static/css/main.18ffd308.css",
+    "main.js": "/sosw-map/static/js/main.087d549e.js",
     "static/media/guk4.png": "/sosw-map/static/media/guk4.986e4b6624c694ca2c77.png",
     "static/media/guk2.png": "/sosw-map/static/media/guk2.a1b128d594180c345d9b.png",
     "static/media/hti3.png": "/sosw-map/static/media/hti3.a1a161ca533aacd94bb1.png",
@@ -26,9 +26,13 @@
     "static/media/isa1.png": "/sosw-map/static/media/isa1.dd430655405392b511bd.png",
     "static/media/rtf4.png": "/sosw-map/static/media/rtf4.daa8575403f318a34d74.png",
     "static/media/tpf2.png": "/sosw-map/static/media/tpf2.3fe61c6b94b35b2da1f3.png",
+    "static/media/ugi1.png": "/sosw-map/static/media/ugi1.6a581219745d0492411b.png",
     "static/media/mt4.png": "/sosw-map/static/media/mt4.383077be6975b42e8b28.png",
     "static/media/hti4.png": "/sosw-map/static/media/hti4.33e63920e98642eae673.png",
+    "static/media/ugi2.png": "/sosw-map/static/media/ugi2.c18c58be74c4f916c6e3.png",
     "static/media/isa3.png": "/sosw-map/static/media/isa3.136b7634c025d3ea7234.png",
+    "static/media/ugi3.png": "/sosw-map/static/media/ugi3.2f890d0a6472b2b3d9e4.png",
+    "static/media/ugi4.png": "/sosw-map/static/media/ugi4.66c85ca1d1351e4fa9c2.png",
     "static/media/tpf8.png": "/sosw-map/static/media/tpf8.34f48b91e940595ef8cc.png",
     "static/media/tpf12.png": "/sosw-map/static/media/tpf12.4df14236c5539c9b0052.png",
     "static/media/nin1.png": "/sosw-map/static/media/nin1.97674247a70f795ab217.png",
@@ -45,11 +49,11 @@
     "static/media/nin0.png": "/sosw-map/static/media/nin0.35d5b65bd90162a92bf1.png",
     "static/media/rtf0.png": "/sosw-map/static/media/rtf0.316d3ee4e91acd6ab1cc.png",
     "index.html": "/sosw-map/index.html",
-    "main.9a7b0d2d.css.map": "/sosw-map/static/css/main.9a7b0d2d.css.map",
-    "main.5e805b68.js.map": "/sosw-map/static/js/main.5e805b68.js.map"
+    "main.18ffd308.css.map": "/sosw-map/static/css/main.18ffd308.css.map",
+    "main.087d549e.js.map": "/sosw-map/static/js/main.087d549e.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a7b0d2d.css",
-    "static/js/main.5e805b68.js"
+    "static/css/main.18ffd308.css",
+    "static/js/main.087d549e.js"
   ]
 }
