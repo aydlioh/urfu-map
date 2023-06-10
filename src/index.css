@@ -10,6 +10,133 @@
     font-family: Montserrat;
 }
 
+.leaflet-routing-container-hide-markers .leaflet-marker-icon {
+    display: none;
+}
+
+.leaflet-routing-container {
+    border: none !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+
+    width: 100%;
+
+    padding: 5px 10px;
+    margin: 20px auto !important;
+    right: calc(50vw - 50%) !important;
+    top: 60px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+}
+
+
+.leaflet-routing-alt-minimized {
+    color: #999;
+    padding-bottom: 12px;
+}
+
+.leaflet-routing-collapse-btn {
+    font-size: 30px;
+    right: 25px;
+    top: 10px;
+
+    background-image: none !important;
+    
+    text-align: end;
+    cursor: pointer;
+}
+
+.leaflet-routing-collapse-btn:after {
+    content: "✖";
+}
+
+.leaflet-routing-container-hide .leaflet-routing-collapse-btn {
+    width: 120px !important;
+    height: 35px !important;
+}
+
+.leaflet-routing-container-hide .leaflet-routing-collapse-btn:after {
+    position: relative;
+    color: #333;
+    font-weight: 650;
+    font-size: 16px;
+    content: "Маршрут";
+    left: -20%;
+    top: -43%;
+
+}
+
+.leaflet-routing-container-hide {
+    text-align: center;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    font-size: 18px;
+    background-image: none !important;
+
+    margin: 0px !important;
+}
+
+.leaflet-top .leaflet-routing-container.leaflet-routing-container-hide {
+    margin: 0px !important;
+    margin-top: 20px !important;
+}
+
+
+
+
+
+
+.close-btn {
+    position: absolute;
+    top: 25px;
+    left: calc(50% - 100px);
+    z-index: 1000;
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px 5px 8px;
+    width: 200px;
+    height: 40px;
+}
+
+.close-btn:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.disable {
+    display: none !important;
+}
+
+.leaflet-routing-alt h2 {
+    text-align: center;
+    font-size: 14px;
+
+}
+
+.leaflet-routing-alt h3 {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+.leaflet-routing-alt td{
+    min-width: 50px;
+    padding-right: 15px;
+    padding-bottom: 2px;
+}
 
 .preloader {
     display: flex;
@@ -450,6 +577,13 @@ a.leaflet-popup-close-button {
 
 .institute__btn:hover {
     background-color: rgb(219, 219, 219);
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default; 
+    color: #999;
+    background-color: #f1f1f1;
 }
 
 

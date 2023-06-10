@@ -8,11 +8,16 @@ import MenuToggle from './components/MenuToggle';
 import InstituteNavigation from './components/InstituteNavigation'
 import { LocationMarker } from "./API/LocationMarker";
 
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import L from "leaflet";
+import "leaflet-routing-machine";
 
 
 export default function Map({ locations }) {
     //#region Fields
     const [userPosition, setUserPosition] = useState([0, 0]);
+    const [routeControl, setRouteControl] = useState(null);
+
 
     const [position, setPosition] = useState([56.84384143906293,60.65234332360141]);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -33,6 +38,7 @@ export default function Map({ locations }) {
 
     const [index, setIndex] = useState(0)
     const [floorNumber, setFloorNumber] = useState(1);
+    const [limitFloors, setLimitFloors] = useState([0, 0]);
 
     const [prevPosition, setPrevPosition] = useState(position)
 
@@ -62,6 +68,7 @@ export default function Map({ locations }) {
             console.log(position)
 
           setPosition([newCenter.lat, newCenter.lng]);
+
         } else setPosition([center.lat, center.lng]);
     }
 
@@ -116,6 +123,44 @@ export default function Map({ locations }) {
         setInstituteMap(institute[index]);
     }, [index, institute]);
     //#endregion
+    
+    //#region Router
+    function createRoute(aim) {
+        const map = mapRef.current;
+        deleteRoute();
+    
+        // Создание объекта маршрутизации
+        const router = L.Routing.control({
+          waypoints: [
+            L.latLng(userPosition),
+            L.latLng(aim) 
+          ],
+          routeWhileDragging: true,
+          lineOptions: {
+            styles: [{ color: "red", opacity: 0.5, weight: 8 }]
+          },
+          createMarker: function() { return null; },
+          addWaypoints: false,
+        }).addTo(map);
+
+        // Обработчик события изменения маршрута
+        router.on("routesfound", function(e) {
+            const routes = e.routes;
+            console.log("Маршруты найдены:", routes);
+        });
+
+        setRouteControl(router);
+    
+        return router;
+    }
+
+    function deleteRoute(){
+        if (routeControl) {
+            routeControl.remove();
+            setRouteControl(null);
+        }
+    }
+    //#endregion
 
     return (
         <>
@@ -142,6 +187,10 @@ export default function Map({ locations }) {
                 maxBounds={bounds}
                 maxBoundsViscosity={1}
             >
+                {routeControl &&
+                    <button className="close-btn" onClick={deleteRoute}>Завершить</button>
+                }
+
                 {!instituteMap && 
                 <TileLayer
                     accessToken="pk.eyJ1IjoiYXlkbGlvaDA0IiwiYSI6ImNsZzNzaXp3NTA3dXAzam0yZDVpNTUyMHUifQ.TL5S9kqlo1pnh_j5LNjCEA"
@@ -162,6 +211,7 @@ export default function Map({ locations }) {
                         floorNumber={floorNumber}
                         AppOrDownClick={AppOrDownClick}
                         handleButtonClickBack={handleButtonClickBack}
+                        limitFloors={limitFloors}
                     />
                 </>}
                 
@@ -171,6 +221,8 @@ export default function Map({ locations }) {
                 /> 
 
                 <Markers
+                    createRoute={createRoute}
+                    deleteRoute={deleteRoute}
                     position={position}
                     setPrevPosition={setPrevPosition}
                     setIndex={setIndex}
@@ -178,8 +230,10 @@ export default function Map({ locations }) {
                     setPosition={setPosition}
                     locations={markers}
                     handleButtonClick={handleButtonClick}
+                    setLimitFloors={setLimitFloors}
                 />
-                </MapContainer>
+
+            </MapContainer>
         </>
   );
 }

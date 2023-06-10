@@ -6,7 +6,13 @@ import Loader from './components/Loader';
 
 
 const locations = [
-    { id: 51, color: "rgb(150, 150, 150)", color1: "rgb(234, 94, 115)", title: 'УГИ', position: [56.84044615824193,60.61618275612711], door: [50, 50], text: "Уральский гуманитарный институт", groundFloor: false, institute:[] },
+    { id: 51, color: "rgb(234, 94, 115)", title: 'УГИ', position: [56.84044615824193,60.61618275612711], door: [56.82649990389227,60.614767892578046], text: "Уральский гуманитарный институт", groundFloor: false,
+        institute:[
+            require('./images/ugi/ugi1.png'),
+            require('./images/ugi/ugi2.png'),
+            require('./images/ugi/ugi3.png'),
+            require('./images/ugi/ugi4.png'),
+        ]},
     { id: 52, color: "rgb(150, 150, 150)", color1: "rgb(44, 121, 50)", title: 'ИЕНиМ', position: [56.84110615824193,60.61482275612711], door: [50, 50], text: "Институт естественных наук и математики", groundFloor : false, institute:[] },
     { id: 1, color: "rgb(106, 178, 227)", title: 'ИРИТ-РТФ', position: [56.8408212141831,60.650870100687744], door: [56.82971155955831,60.27868488476553], text: "Институт радиоэлектроники и информационных технологий-РТФ", groundFloor: true,
         institute:[
@@ -53,7 +59,6 @@ const locations = [
             require('./images/isa/isa3.png'),
             require('./images/isa/isa4.png'),
         ]},
-    { id: 7, color: "rgb(150, 150, 150)", color1: "rgb(178, 52, 53)", title: 'СП', position: [56.84502134350719,60.651732882212874],  door: [50, 50], text: "СФ УрФУ", groundFloor : false, institute:[]  },
     { id: 8, color: "rgb(161, 39, 131)", title: 'УралЭНИН', position: [56.84465134350719,60.652052882212874], door: [56.757364690114976,60.344602853515525], text: "Уральский энергетический институт", groundFloor : false, 
         institute: [
             require('./images/guk/guk1.png'),
