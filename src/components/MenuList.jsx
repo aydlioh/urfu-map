@@ -1,4 +1,4 @@
-export default function MenuList( {instituteMap, clickVisit, createRoute, handleButtonClickBack, setIsScrolled, toggleMenu, setPosition, locations} ) {
+export default function MenuList( {instituteMap, clickVisit, createRoute, handleButtonClickBack, setIsScrolled, toggleMenu, setPosition, locations, setFilter} ) {
 
     if (!locations.length) {
         return (
@@ -9,6 +9,7 @@ export default function MenuList( {instituteMap, clickVisit, createRoute, handle
     const handleSearch = (l) => {
         const result = l.position
         handleButtonClickBack()
+        setFilter({...locations, query: ''})
         toggleMenu()
         setPosition([result[0], result[1]]);
     };

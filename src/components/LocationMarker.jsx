@@ -20,13 +20,12 @@ export function LocationMarker({userPosition, setUserPosition}) {
     });
   
     useEffect(() => {
-      // Проверяем доступность Geolocation API в браузере
       if ("geolocation" in navigator) {
-        // Запрашиваем разрешение на определение местоположения
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const { latitude, longitude } = position.coords;
 
+            //setUserPosition([latitude, longitude]);
             setUserPosition([56.833753250726545,60.64967251241913]); // ТУТ НАДА ИЗМЕНИТЬ
             
           },

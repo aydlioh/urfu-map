@@ -30,7 +30,8 @@ export default function Menu({instituteMap, clickVisit, createRoute, handleButto
                 setIsScrolled={setIsScrolled} 
                 toggleMenu={toggleMenu} 
                 setPosition={setPosition} 
-                locations={searchedPosts}/>
+                locations={searchedPosts}
+                setFilter={setFilter}/>
         </div>
     );
 }
