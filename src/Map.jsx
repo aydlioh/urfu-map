@@ -6,18 +6,18 @@ import Markers from "./components/Markers";
 import Menu from './Menu';
 import MenuToggle from './components/MenuToggle';
 import InstituteNavigation from './components/InstituteNavigation'
-import { LocationMarker } from "./API/LocationMarker";
+import { LocationMarker } from "./components/LocationMarker";
 
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import L from "leaflet";
 import "leaflet-routing-machine";
 import CloseButton from "./components/CloseButton";
+import RouteContoler from "./components/RouteControler";
 
 
 export default function Map({ locations }) {
     //#region Fields
     const [userPosition, setUserPosition] = useState([0, 0]);
-    const [routeControl, setRouteControl] = useState(null);
 
     const [position, setPosition] = useState([56.84384143906293,60.65234332360141]);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -125,7 +125,10 @@ export default function Map({ locations }) {
     //#endregion
     
     //#region Router
-    function createRoute(aim) {
+    const [isFootRouter, setIsFootRouter] = useState(true);
+    const [routeControl, setRouteControl] = useState(null);
+    const apiKey = "5b3ce3597851110001cf62483f904793485c48029507c7edab722223";
+    function createCarRoute(aim) {
         const map = mapRef.current;
         deleteRoute();
     
@@ -141,6 +144,7 @@ export default function Map({ locations }) {
           },
           createMarker: function() { return null; },
           addWaypoints: false,
+          profile: 'foot' 
         }).addTo(map);
 
         // Обработчик события изменения маршрута
@@ -152,8 +156,31 @@ export default function Map({ locations }) {
         setRouteControl(router);
         return router;
     }
+    
+    function createFootRoute(aim) {
+        const map = mapRef.current;
+        deleteRoute();
 
-    function deleteRoute(){
+        const start = `${userPosition[1]},${userPosition[0]}`;
+        const end = `${aim[1]},${aim[0]}`;
+        const url = `https://api.openrouteservice.org/v2/directions/foot-walking?api_key=${apiKey}&start=${start}&end=${end}`;
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+            const coordinates = data.features[0].geometry.coordinates;
+            const latLngs = coordinates.map((coordinate) => L.latLng(coordinate[1], coordinate[0]));
+
+            const route = L.polyline(latLngs, { color: "blue", opacity: 0.7, weight: 8 }).addTo(map);
+
+            setRouteControl(route);
+            })
+            .catch((error) => {
+            console.error("Ошибка при получении маршрута:", error);
+            });
+    }
+
+    function deleteRoute() {
         if (routeControl) {
             routeControl.remove();
             setRouteControl(null);
@@ -178,6 +205,10 @@ export default function Map({ locations }) {
 
     return (
         <>
+            <RouteContoler
+                isFootRouter={isFootRouter}
+                setIsFootRouter={setIsFootRouter}
+            />
             <MenuToggle
                 toggleMenu={toggleMenu}
                 menuOpen={menuOpen}
@@ -185,7 +216,7 @@ export default function Map({ locations }) {
             <Menu
                 instituteMap={instituteMap}
                 clickVisit={clickVisit}
-                createRoute={createRoute}
+                createRoute={isFootRouter ? createFootRoute : createCarRoute}
                 handleButtonClickBack={handleButtonClickBack}
                 toggleMenu={toggleMenu}
                 className={`menu ${menuOpen ? 'open' : ''}`}
@@ -216,6 +247,12 @@ export default function Map({ locations }) {
                     zoomOffset={-1}
                     url={streetMap}
                 />}
+
+                {!instituteMap &&
+                 <LocationMarker
+                    userPosition={userPosition}
+                    setUserPosition={setUserPosition}
+                />}
                 
                 {instituteMap && 
                 <>
@@ -231,16 +268,11 @@ export default function Map({ locations }) {
                         limitFloors={limitFloors}
                     />
                 </>}
-                
-                <LocationMarker
-                    userPosition={userPosition}
-                    setUserPosition={setUserPosition}
-                /> 
-
+               
                 <Markers
                     deleteRoute={deleteRoute}
                     clickVisit={clickVisit}
-                    createRoute={createRoute}
+                    createRoute={isFootRouter ? createFootRoute : createCarRoute}
                     setPosition={setPosition}
                     locations={markers}
                 />

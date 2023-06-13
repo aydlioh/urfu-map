@@ -5,7 +5,7 @@ import L from "leaflet";
 function getUserIcon() {
     return new L.Icon({
       className: "marker-icon",
-      iconUrl: require('./user.png'),
+      iconUrl: require('../images/user.png'),
       iconSize: [60, 60],
       iconAnchor: [35, 50],
     });
@@ -27,7 +27,7 @@ export function LocationMarker({userPosition, setUserPosition}) {
           (position) => {
             const { latitude, longitude } = position.coords;
 
-            setUserPosition([56.853753250726545,60.64967251241913]); // ТУТ НАДА ИЗМЕНИТЬ
+            setUserPosition([56.833753250726545,60.64967251241913]); // ТУТ НАДА ИЗМЕНИТЬ
             
           },
           (error) => {
@@ -48,10 +48,6 @@ export function LocationMarker({userPosition, setUserPosition}) {
             >
             <Popup>
                 <h1 className="marker__title">Ваше местоположение</h1>
-                {/*                 
-                <div className="marker__text">Широта ({userPosition[0]})</div>
-                <div className="marker__text">Долгота ({userPosition[1]})</div>
-                */}
             </Popup>
         </Marker>
     )

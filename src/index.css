@@ -30,6 +30,19 @@
     font-size: 13px;
 }
 
+@media (max-width: 600px) {
+    .leaflet-routing-container{
+        top: 150px;
+    }
+
+    .leaflet-routing-alt {
+        width: 350px;
+    }
+
+    .leaflet-routing-container-hide {
+        top: 60px !important;
+    }
+}
 
 .leaflet-routing-alt-minimized {
     color: #999;
@@ -268,6 +281,49 @@ a.leaflet-popup-close-button {
     display: none;
 }
 
+.route-controler {
+    position: absolute;
+    top: 80px;
+    right: 15px;
+    z-index: 1;
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+
+    padding: 10px;
+    cursor: pointer;
+
+    outline: none;
+
+    transition: all 0.3s ease-in-out;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 2em;
+}
+
+.route-controler-text {
+    margin-left: 6px;
+    display: flex;
+
+    font-size: 24px;
+}
+
+.route-controler-item {
+    display: flex;
+    align-items: center;
+}
+
+.route-controler-item:first-child {
+    margin-bottom: 5px;
+}
     
 .menu-toggle {
     position: absolute;
