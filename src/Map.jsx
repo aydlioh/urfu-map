@@ -205,10 +205,13 @@ export default function Map({ locations }) {
 
     return (
         <>
-            <RouteContoler
-                isFootRouter={isFootRouter}
-                setIsFootRouter={setIsFootRouter}
-            />
+            {!instituteMap &&
+                <RouteContoler
+                    isFootRouter={isFootRouter}
+                    setIsFootRouter={setIsFootRouter}
+                />
+            }
+            
             <MenuToggle
                 toggleMenu={toggleMenu}
                 menuOpen={menuOpen}
