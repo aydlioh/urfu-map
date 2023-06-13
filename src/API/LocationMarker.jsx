@@ -2,16 +2,12 @@ import { useMapEvents, Marker, Popup } from "react-leaflet";
 import { useEffect } from "react";
 import L from "leaflet";
 
-function getUserIcon(color) {
+function getUserIcon() {
     return new L.Icon({
       className: "marker-icon",
-      iconUrl: `data:image/svg+xml;charset=utf-8,
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(255, 50, 50)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-          <path fill="rgb(255, 50, 50)" d="M12 22s-8-6.5-8-13a8 8 0 1 1 16 0c0 6.5-8 13-8 13z"/>
-          <circle cx="12" cy="9" r="5" fill="white" />
-        </svg>`,
-      iconSize: [56, 56],
-      iconAnchor: [23, 20],
+      iconUrl: require('./user.png'),
+      iconSize: [60, 60],
+      iconAnchor: [35, 50],
     });
 }
 
@@ -31,7 +27,7 @@ export function LocationMarker({userPosition, setUserPosition}) {
           (position) => {
             const { latitude, longitude } = position.coords;
 
-            setUserPosition([latitude, longitude]);
+            setUserPosition([56.853753250726545,60.64967251241913]); // ТУТ НАДА ИЗМЕНИТЬ
             
           },
           (error) => {

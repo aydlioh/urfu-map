@@ -24,6 +24,7 @@ export default function Markers( {deleteRoute, clickVisit, createRoute, setPosit
 
     function clickCreateRoute(pos){
         createRoute(pos);
+        setPosition(pos);
     }
 
     return (

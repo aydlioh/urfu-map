@@ -90,7 +90,7 @@ const locations = [
             require('./images/tpf/tpf11.png'),
             require('./images/tpf/tpf12.png'),
         ]},
-    { id: 11, color: "rgb(51, 186, 142)", title: 'НиН', position: [56.84509134350719,60.652362882212874],  door: [56.82971155955831,60.27868488476553], text: "Уральский федеральный университет, Наноматериалы и нанотехнологии", groundFloor : true,
+    { id: 11, color: "rgb(51, 186, 142)", title: 'НиН', position: [56.84509134350719,60.652362882212874],  door: [56.82971155955831,60.27868488476553], text: "Наноматериалы и нанотехнологии", groundFloor : true,
         institute:[
             require('./images/nin/nin0.png'),
             require('./images/nin/nin1.png'),

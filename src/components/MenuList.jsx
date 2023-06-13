@@ -1,5 +1,11 @@
 export default function MenuList( {instituteMap, clickVisit, createRoute, handleButtonClickBack, setIsScrolled, toggleMenu, setPosition, locations} ) {
 
+    if (!locations.length) {
+        return (
+            <div className="not-found-institute">Институты не найдены!</div>
+        )
+    }
+
     const handleSearch = (l) => {
         const result = l.position
         handleButtonClickBack()

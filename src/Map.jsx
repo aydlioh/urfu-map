@@ -150,7 +150,6 @@ export default function Map({ locations }) {
         });
 
         setRouteControl(router);
-    
         return router;
     }
 

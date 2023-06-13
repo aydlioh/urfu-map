@@ -420,6 +420,12 @@ a.leaflet-popup-close-button {
     font-size: 16px;
 }
 
+.not-found-institute {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+
 .menu-items::-webkit-scrollbar {
     display: none;
 }
