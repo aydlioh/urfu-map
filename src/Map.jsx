@@ -253,6 +253,7 @@ export default function Map({ locations }) {
 
                 {!instituteMap &&
                  <LocationMarker
+                    setPosition={setPosition}
                     userPosition={userPosition}
                     setUserPosition={setUserPosition}
                 />}

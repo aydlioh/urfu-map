@@ -11,7 +11,7 @@ function getUserIcon() {
     });
 }
 
-export function LocationMarker({userPosition, setUserPosition}) {
+export function LocationMarker({userPosition, setUserPosition, setPosition}) {
     useMapEvents({
       locationfound(e) {
         const { lat, lng } = e.latlng;
@@ -25,9 +25,16 @@ export function LocationMarker({userPosition, setUserPosition}) {
           (position) => {
             const { latitude, longitude } = position.coords;
 
+            // ТУТ НАДА ИЗМЕНИТЬ
             //setUserPosition([latitude, longitude]);
-            setUserPosition([56.833753250726545,60.64967251241913]); // ТУТ НАДА ИЗМЕНИТЬ
+            // if (userPosition[0] === 0){
+            //     setPosition([latitude, longitude]);
+            // }
             
+            setUserPosition([56.833753250726545,60.64967251241913]); 
+            if (userPosition[0] === 0){
+                setPosition([56.833753250726545,60.64967251241913]);
+            }
           },
           (error) => {
             console.error("Ошибка при получении координат пользователя:", error);
