@@ -23,7 +23,7 @@ export default function Map({ locations }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
 
-    const bounds = new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
+    const bounds = new LatLngBounds([56.87154542458642 + 0.05, 60.520703299803316 - 0.17], [56.814346593446686 - 0.05, 60.714337333006426 + 0.17])
     const mapRef = useRef(null);
     //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
     //     "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
@@ -81,10 +81,10 @@ export default function Map({ locations }) {
             setInstituteMap(ins[index])
             setInstitute(ins)
             
-            zoomToPosition(0.2, 13)
-            setMaxZoom(15);
-            setZoom(13);
-            setMinZoom(12)
+            zoomToPosition(0.2, 12)
+            setMaxZoom(14);
+            setZoom(12);
+            setMinZoom(11)
         }
     }
 

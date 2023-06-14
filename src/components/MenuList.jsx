@@ -42,8 +42,12 @@ export default function MenuList( {instituteMap, clickVisit, createRoute, handle
                     <div className="menu-item__text"> {l.text} </div>
                     {!instituteMap &&
                         <div className="marker__btns">
-                            <a onClick={() => handleMenuVisit(l)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Посетить</a>
-                            <a onClick={() => handleMenuCreateRoute(l)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Маршрут</a>
+                            <div className="marker__btn--outer">
+                                <a onClick={() => handleMenuVisit(l)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Посетить</a>
+                            </div>
+                            <div className="marker__btn--outer">
+                                <a onClick={() => handleMenuCreateRoute(l)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Маршрут</a>
+                            </div>
                         </div>
                     }
                 </div>

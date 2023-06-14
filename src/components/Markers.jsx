@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
@@ -15,15 +16,18 @@ function getIcon(color) {
 }
 
 export default function Markers( {deleteRoute, clickVisit, createRoute, setPosition, locations }) {
-    
+    const [popupOpen, setPopupOpen] = useState(true);
+
     function clickMarker(e) {
         const marker = e.target;
         const result = marker.getLatLng();
         setPosition([result.lat, result.lng]);
+        setPopupOpen(true);
     }
 
-    function clickCreateRoute(pos){
-        createRoute(pos);
+    function clickCreateRoute(l){
+        setPopupOpen(false);
+        createRoute(l.position);
     }
 
     return (
@@ -35,14 +39,21 @@ export default function Markers( {deleteRoute, clickVisit, createRoute, setPosit
                 position={l.position}
                 eventHandlers={{ click: clickMarker }}
                 >
-                <Popup>
-                    <h1 className="marker__title">{l.title}</h1>
-                    <div className="marker__text">{l.text}</div>
-                    <div className="marker__btns">
-                        <a onClick={() => clickVisit(l)} className="marker__btn" href="#" style={{ backgroundColor: l.color }}>Посетить</a>
-                        <a onClick={() => clickCreateRoute(l.position)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Маршрут</a>
-                    </div>
-                </Popup>
+                { popupOpen &&
+                    <Popup>
+                        <h1 className="marker__title">{l.title}</h1>
+                        <div className="marker__text">{l.text}</div>
+                        <div className="marker__btns">
+                            <div className="marker__btn--outer">
+                                <a onClick={() => clickVisit(l)} className="marker__btn" href="#" style={{ backgroundColor: l.color }}>Посетить</a>
+                            </div>
+
+                            <div className="marker__btn--outer">
+                                <a onClick={() => clickCreateRoute(l)} className="marker__btn" href="#"  style={{ backgroundColor: l.color }}>Маршрут</a>
+                            </div>
+                        </div>
+                    </Popup>
+                }
             </Marker>
         ))}
         </>

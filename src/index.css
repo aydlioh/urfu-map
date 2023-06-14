@@ -546,9 +546,13 @@ input[type=radio] {
     display: flex;
 }
 
-.marker__btn {
-    width: 36%;
+.marker__btn--outer {
+    width: 43%;
     margin: 15px auto;
+}
+
+.marker__btn {
+    
     padding: 0 10px;
     display: flex;
     justify-content: center;
