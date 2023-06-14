@@ -22,7 +22,6 @@ export default function Map({ locations }) {
     const [position, setPosition] = useState([56.84384143906293,60.65234332360141]);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const toggleMenu = () => setMenuOpen(!menuOpen);
 
     const bounds = new LatLngBounds([56.87154542458642,60.520703299803316], [56.814346593446686,60.714337333006426])
     const mapRef = useRef(null);
@@ -49,6 +48,10 @@ export default function Map({ locations }) {
     //#endregion
 
     //#region Function
+    function toggleMenu() {
+        setMenuOpen(!menuOpen)
+    };
+
     function zoomToPosition(duration, zoomLevel) {
         if (mapRef.current) {
           mapRef.current.flyTo(position, zoomLevel, {
@@ -189,17 +192,19 @@ export default function Map({ locations }) {
     //#endregion
 
     //#region Visit University
-    function clickVisit(l){
+    function clickVisit(l, prevPos = position){
         deleteRoute();
 
-        if (l.institute.length > 0){
-            if (l.groundFloor)
-                setIndex(1)
-            setLimitFloors([1 - (l.groundFloor ? 1 : 0),  l.institute.length - (l.groundFloor ? 1 : 0)])
-            setPrevPosition(position)
-            setPosition(l.door)
-            handleButtonClick(l.institute)
-        }
+        setTimeout(() => {
+            if (l.institute.length > 0){
+                if (l.groundFloor)
+                    setIndex(1)
+                setLimitFloors([1 - (l.groundFloor ? 1 : 0),  l.institute.length - (l.groundFloor ? 1 : 0)])
+                setPrevPosition(prevPos)
+                setPosition(l.door)
+                handleButtonClick(l.institute)
+            }
+        }, 1)
     }
     //#endregion
 

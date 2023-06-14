@@ -24,17 +24,17 @@ export function LocationMarker({userPosition, setUserPosition, setPosition}) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const { latitude, longitude } = position.coords;
-
-            // ТУТ НАДА ИЗМЕНИТЬ
-            //setUserPosition([latitude, longitude]);
-            // if (userPosition[0] === 0){
-            //     setPosition([latitude, longitude]);
-            // }
             
-            setUserPosition([56.833753250726545,60.64967251241913]); 
+            console.log("Coordinates received", [latitude, longitude]);
             if (userPosition[0] === 0){
-                setPosition([56.833753250726545,60.64967251241913]);
+                setUserPosition([latitude, longitude]);
+                setPosition([latitude, longitude]);
+                return null;
             }
+
+            // setUserPosition([56.833753250726545,60.64967251241913]); 
+            // setPosition([56.833753250726545,60.64967251241913]);
+            // return null;
           },
           (error) => {
             console.error("Ошибка при получении координат пользователя:", error);
@@ -43,9 +43,31 @@ export function LocationMarker({userPosition, setUserPosition, setPosition}) {
       } else {
         console.warn("Geolocation не поддерживается в данном браузере");
       }
-    }, [setUserPosition]);
-  
+    }, []);
     
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                const { latitude, longitude } = position.coords;
+      
+                setUserPosition([latitude, longitude]);
+                // setUserPosition([56.833753250726545,60.64967251241913]); 
+                console.log("Coordinates update", userPosition);
+              },
+              (error) => {
+                console.error("Ошибка при получении координат пользователя:", error);
+              }
+            );
+          } else {
+            console.warn("Geolocation не поддерживается в данном браузере");
+          }
+        }, 3500);
+      
+        return () => clearTimeout(timer);
+      }, [userPosition]);
+
     return(
         <Marker
             key={777}

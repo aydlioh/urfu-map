@@ -24,7 +24,7 @@ export default function MenuList( {instituteMap, clickVisit, createRoute, handle
     };
 
     const handleMenuVisit = (l) => {
-        clickVisit(l)
+        clickVisit(l, l.position)
     };
 
     const handleMenuCreateRoute = (l) => {
