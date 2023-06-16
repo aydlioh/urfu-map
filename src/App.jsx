@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from './components/Footer';
 import UrfuMap from "./Map";
 import "./index.css";
 import Loader from './components/Loader';
+
+import axios from 'axios';
 
 
 const locations = [
@@ -177,15 +179,6 @@ const locations = [
 ];
 
 export default function App() {
-    const [data, setData] = useState({d: []})
-
-    async function fetchData(){
-        let response = await fetch("https://eqwe/52/1");
-        let d = await response.json();
-
-        setData({d: d})
-    }
-
     return (
         <>
             <Loader />

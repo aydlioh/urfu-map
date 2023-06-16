@@ -31,7 +31,8 @@ export default function Map({ locations }) {
     //     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     
     const streetMap = "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-    const [markers, setMarkers] = useState(locations);
+    const [markers, setMarkers] = useState([]);
+
     const [instituteMap, setInstituteMap] = useState("")
     const [institute, setInstitute] = useState([])
 
@@ -120,6 +121,11 @@ export default function Map({ locations }) {
     //#endregion
 
     //#region UseEffect
+    useEffect(() => {
+        // Установка значений в markers при монтировании компонента
+        setMarkers(locations);
+    }, [locations]);
+
     useEffect(() => {
         zoomToPosition(0.4, 18)
     }, [position]);

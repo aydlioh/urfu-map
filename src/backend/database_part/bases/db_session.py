@@ -23,4 +23,4 @@ def global_init(path):
 
 
 def get_session() -> Session:
-    return __factory
+    return __factory()

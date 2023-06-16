@@ -1,30 +1,20 @@
 # База данных со всеми институтами
-from backend.database_part.bases.db_session import SqlAlchemyBase
+from .db_session import SqlAlchemyBase
 import sqlalchemy
-from sqlalchemy import orm
+from sqlalchemy_serializer import SerializerMixin
 
 
-class Institutes(SqlAlchemyBase):
+class Institutes(SqlAlchemyBase, SerializerMixin):
     """
     Класс Institutes моделирует базу даннных всех институтов УрФУ.
     """
     __tablename__ = 'institutes'
 
-    # Идентификатор института, по которому происходит связь института с кабинетами из базы cabinets
-    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
-    name = sqlalchemy.Column(sqlalchemy.String, unique=True)
-    # Количество этажей в институте
-    number_of_floors = sqlalchemy.Column(sqlalchemy.Integer)
-    description = sqlalchemy.Column(sqlalchemy.String)
-
-    cabinets = orm.relation('cabinets', back_populates='institute')
-
-    def __repr__(self):
-        # Для вывода объекта на печать с помощью команды print
-        info = f'''
-id - {self.id}
-Институт - {self.name}
-Количество этажей - {self.number_of_floors}
-Описание - {self.description}
-'''
-        return info
+    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)  # Идентификатор
+    color = sqlalchemy.Column(sqlalchemy.Text)  # Цвет маркера
+    title = sqlalchemy.Column(sqlalchemy.Text, unique=True)  # Название института
+    position = sqlalchemy.Column(sqlalchemy.Text)  # Позиция на карте
+    door = sqlalchemy.Column(sqlalchemy.Text)  # Позиция двери на карте
+    text = sqlalchemy.Column(sqlalchemy.Text)  # Описание института
+    groundFloor = sqlalchemy.Column(sqlalchemy.Integer)  # Имеется ли подземный этаж
+    institute = sqlalchemy.Column(sqlalchemy.Integer)  # Количество изображений этажей
