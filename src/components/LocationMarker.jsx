@@ -27,16 +27,16 @@ export function LocationMarker({userPosition, setUserPosition, setPosition}) {
             
             const bounds = [[56.87154542458642 + 0.05, 60.520703299803316 - 0.17], [56.814346593446686 - 0.05, 60.714337333006426 + 0.17]];
             console.log("Coordinates received", [latitude, longitude]);
-            if (userPosition[0] === 0 && (bounds[1][0] < latitude && latitude < bounds[0][0]) && (bounds[0][1] < longitude && longitude < bounds[1][1])){
-                setPosition([latitude, longitude]);
-            }
+            // if (userPosition[0] === 0 && (bounds[1][0] < latitude && latitude < bounds[0][0]) && (bounds[0][1] < longitude && longitude < bounds[1][1])){
+            //     setPosition([latitude, longitude]);
+            // }
 
-            setUserPosition([latitude, longitude]);
-            return null;
-
-            // setUserPosition([56.833753250726545,60.64967251241913]); 
-            // setPosition([56.833753250726545,60.64967251241913]);
+            // setUserPosition([latitude, longitude]);
             // return null;
+
+            setUserPosition([56.833753250726545,60.64967251241913]); 
+            setPosition([56.833753250726545,60.64967251241913]);
+            return null;
           },
           (error) => {
             console.error("Ошибка при получении координат пользователя:", error);
@@ -54,8 +54,8 @@ export function LocationMarker({userPosition, setUserPosition, setPosition}) {
               (position) => {
                 const { latitude, longitude } = position.coords;
       
-                setUserPosition([latitude, longitude]);
-                // setUserPosition([56.833753250726545,60.64967251241913]); 
+                // setUserPosition([latitude, longitude]);
+                setUserPosition([56.833753250726545,60.64967251241913]); 
                 console.log("Coordinates update", userPosition);
               },
               (error) => {
