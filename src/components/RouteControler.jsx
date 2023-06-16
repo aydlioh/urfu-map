@@ -1,7 +1,21 @@
 import { FaCarAlt } from 'react-icons/fa';
 import { RiFootprintFill } from 'react-icons/ri';
 
-const RouteContoler = ({isFootRouter, setIsFootRouter}) => {
+const RouteContoler = ({createCarRoute, createFootRoute, routeAim, routeControl, isFootRouter, setIsFootRouter}) => {
+
+    function RouterChangeToFoot() {
+        if (routeControl){
+            createFootRoute(routeAim);
+        }
+        setIsFootRouter(true)
+    }
+
+    function RouterChangeToCar() {
+        if (routeControl){
+            createCarRoute(routeAim);
+        }
+        setIsFootRouter(false)
+    }
 
     return (
         <div className="route-controler">
@@ -13,7 +27,7 @@ const RouteContoler = ({isFootRouter, setIsFootRouter}) => {
                     name="routeType"
                     value="foot"
                     checked={isFootRouter}
-                    onChange={() => setIsFootRouter(true)}
+                    onChange={RouterChangeToFoot}
                 />
                 <label className="route-controler-text" htmlFor="foot"><RiFootprintFill/></label>
             </div>
@@ -25,7 +39,7 @@ const RouteContoler = ({isFootRouter, setIsFootRouter}) => {
                     name="routeType"
                     value="car"
                     checked={!isFootRouter}
-                    onChange={() => setIsFootRouter(false)}
+                    onChange={RouterChangeToCar}
                 />
                 <label className="route-controler-text" htmlFor="car"><FaCarAlt/></label>
             </div>

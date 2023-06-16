@@ -78,9 +78,11 @@ export default function Map({ locations }) {
     function handleButtonClick(ins) {
         if (ins.length > index){
             setMarkers([])
+
+            // qweqwe
             setInstituteMap(ins[index])
+
             setInstitute(ins)
-            
             zoomToPosition(0.2, 12)
             setMaxZoom(14);
             setZoom(12);
@@ -130,8 +132,10 @@ export default function Map({ locations }) {
     //#region Router
     const [isFootRouter, setIsFootRouter] = useState(true);
     const [routeControl, setRouteControl] = useState(null);
+    const [routeAim, setRouteAim] = useState([0, 0]);
     const apiKey = "5b3ce3597851110001cf62483f904793485c48029507c7edab722223";
     function createCarRoute(aim) {
+        setRouteAim(aim);
         const map = mapRef.current;
         deleteRoute();
     
@@ -161,6 +165,7 @@ export default function Map({ locations }) {
     }
     
     function createFootRoute(aim) {
+        setRouteAim(aim);
         const map = mapRef.current;
         deleteRoute();
 
@@ -212,6 +217,10 @@ export default function Map({ locations }) {
         <>
             {!instituteMap &&
                 <RouteContoler
+                    createCarRoute={createCarRoute}
+                    createFootRoute={createFootRoute}
+                    routeAim={routeAim}
+                    routeControl={routeControl}
                     isFootRouter={isFootRouter}
                     setIsFootRouter={setIsFootRouter}
                 />
