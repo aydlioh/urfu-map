@@ -1,3 +1,0 @@
-Flask==2.3.2
-SQLAlchemy==1.4.31
-SQLAlchemy_serializer==1.4.1

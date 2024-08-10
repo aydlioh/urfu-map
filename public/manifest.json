@@ -1,0 +1,15 @@
+{
+  "short_name": "Карты УрФУ",
+  "name": "Карты зданий и корпусов УрФУ",
+  "icons": [
+    {
+      "src": "urfu-icon.webp",
+      "type": "image/webp",
+      "sizes": "490x466"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
